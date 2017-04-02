@@ -9,6 +9,7 @@
 
 
 - name: Ensure required pip packages are installed
-  pip:  "{{ item }}"
-  state: present
+  pip:
+    name: "{{ item }}"
+    state: present
   with_items: "{{ azure_pip_packages }}"
