@@ -3,12 +3,12 @@
 
 - name: Ensure required yum packages are installed
   yum:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   with_items: "{{ prereq_yum _packages }}"
 
 
 - name: Ensure required pip packages are installed
-  pip:  {{ item }}
+  pip:  "{{ item }}"
   state: present
   with_items: "{{ azure_pip_packages }}"
