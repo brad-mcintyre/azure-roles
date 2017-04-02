@@ -5,7 +5,7 @@
   yum:
     name: "{{ item }}"
     state: present
-  with_items: "{{ prereq_yum _packages }}"
+  with_items: "{{ prereq_yum_packages }}"
 
 
 - name: Ensure required pip packages are installed
