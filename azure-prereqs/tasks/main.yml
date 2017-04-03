@@ -22,9 +22,20 @@
 - debug:
     var: pip_result
 
-- name: Role back changes if failure
-  yum:
-    name: "{{ item }}"
-    state: removed
-  with_items: "{{ prereq_yum_packages}}"
-  when: "'changed' in yum_result.stdout"
+- name: Ensure required Azure npm packages are installed
+ npm:
+  name: "{{ item }}"
+  state: present
+  global: yes
+with_items: "{{ azure_npm_packages }}"
+    register: npm_result
+    #failed_when: "'FAILED' in command_result.stderr"
+  - debug:
+      var: npm_result
+
+#- name: Role back changes if failure
+#  yum:
+#    name: "{{ item }}"
+#    state: removed
+#  with_items: "{{ prereq_yum_packages}}"
+#  when: "'changed' in yum_result.stdout"
