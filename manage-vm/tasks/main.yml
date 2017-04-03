@@ -1,2 +1,2 @@
 ---
- - include: tasks/connecttoazure.yml
+ - include: tasks/azyre-vmfacts.yml

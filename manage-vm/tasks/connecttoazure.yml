@@ -1,9 +1,0 @@
----
-
-
-- name: Get facts
-  azure_rm_virtualmachineimage_facts:
-    ad_user: test@bmcintyrehotmail.onmicrosoft.com
-    password: Password01
-    location: Australia Southeast
-    subscription_id: 59bac375-da4c-4106-ac13-ece8b6364123

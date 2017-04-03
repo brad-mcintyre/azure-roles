@@ -24,4 +24,4 @@
       - msrestazure
 
   roles:
-    - azure-vmacts
+    - azure-prereqs
