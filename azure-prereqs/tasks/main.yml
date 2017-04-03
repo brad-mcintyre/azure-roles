@@ -23,14 +23,14 @@
     var: pip_result
 
 - name: Ensure required Azure npm packages are installed
- npm:
-  name: "{{ item }}"
-  state: present
-  global: yes
-with_items: "{{ azure_npm_packages }}"
-    register: npm_result
+  npm:
+    name: "{{ item }}"
+    state: present
+    global: yes
+  with_items: "{{ azure_npm_packages }}"
+  register: npm_result
     #failed_when: "'FAILED' in command_result.stderr"
-  - debug:
+- debug:
       var: npm_result
 
 #- name: Role back changes if failure
