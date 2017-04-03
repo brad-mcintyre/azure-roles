@@ -6,10 +6,10 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ prereq_yum_packages }}"
-  register: result
+  register: yup_result
   #failed_when: "'FAILED' in command_result.stderr"
-  #debug:
-    #var: result
+- debug:
+    var: yum_result
 
 
 - name: Ensure required Azure pip packages are installed
@@ -17,10 +17,10 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ azure_pip_packages }}"
-  register: result
+  register: pip_result
   #failed_when: "'FAILED' in command_result.stderr"
-  #debug:
-    #var: result
+- debug:
+    var: pip_result
 
 #- name: Role back changes if failure
 #  yum:
