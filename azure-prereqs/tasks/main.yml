@@ -22,9 +22,9 @@
 - debug:
     var: pip_result
 
-#- name: Role back changes if failure
-#  yum:
-#    name: "{{ item }}"
-#    state: removed
-#  with_items: "{{ prereq_yum_packages}}"
-#  when:
+- name: Role back changes if failure
+  yum:
+    name: "{{ item }}"
+    state: removed
+  with_items: "{{ prereq_yum_packages}}"
+  when: "'changed' in yum_result.stdout"
