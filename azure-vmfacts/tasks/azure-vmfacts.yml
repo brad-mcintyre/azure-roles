@@ -5,6 +5,6 @@
   azure_rm_virtualmachineimage_facts:
     location: Australia Southeast
     subscription_id: dbc218fd-b8f5-4a62-9f50-b698b859feec
-    tenant_id: dbc218fd-b8f5-4a62-9f50-b698b859feec
+    tenant: dbc218fd-b8f5-4a62-9f50-b698b859feec
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
