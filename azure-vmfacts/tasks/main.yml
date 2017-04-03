@@ -1,2 +1,2 @@
 ---
- - include: tasks/azyre-vmfacts.yml
+ - include: tasks/azure-vmfacts.yml
