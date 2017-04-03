@@ -15,7 +15,7 @@
       - nodejs
       - npm
 
-    prereq_npm_packages:
+    azure_npm_packages:
       - azure-cli
 
     azure_pip_packages:
