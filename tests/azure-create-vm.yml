@@ -18,7 +18,7 @@
     public_ip_allocation_method: static
     started: true
     state: present
-    vm_size: Standard_D1_V2
+    vm_size: Standard_D1_v2
 
   roles:
     - azure-create-vm
