@@ -2,19 +2,20 @@
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
-    #subscription_id: "{{ subscription_id }}"
+    subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: "{{ vm_name }}"
-    vm_size: "{{ vm_size }}"
-    admin_username: "{{ admin_username }}"
-    admin_password: "{{ admin_password }}"
-    os_type: "{{ os_type }}"
-    image:
-      publisher: "{{ publisher }}"
-      offer: "{{ offer }}"
-      sku: "{{ sku }}"
-      version: "{{ version }}"
+    #vm_size: "{{ vm_size }}"
+    #admin_username: "{{ admin_username }}"
+    #admin_password: "{{ admin_password }}"
+    #os_type: "{{ os_type }}"
+    #image:
+      #publisher: "{{ publisher }}"
+      #offer: "{{ offer }}"
+      #sku: "{{ sku }}"
+      #version: "{{ version }}"
+    state: false
   register: output
 
 - debug: var=output
