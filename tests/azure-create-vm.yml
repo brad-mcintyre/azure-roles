@@ -1,9 +1,10 @@
 ---
 - name: Test playbook for azure-create-vm
   hosts: localhost
+  connection: local
   gather_facts: false
-  user: ansible
-  become: yes
+  #user: ansible
+  #become: yes
 
   vars:
     subscription_id: xxx21a0e15-f849-4a60-bc00-31a7f21a45bb
