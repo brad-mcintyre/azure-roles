@@ -15,7 +15,7 @@
       #offer: "{{ offer }}"
       #sku: "{{ sku }}"
       #version: "{{ version }}"
-    state: false
+    started: false
   register: output
 
 - debug: var=output
