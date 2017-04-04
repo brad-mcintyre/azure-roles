@@ -2,7 +2,7 @@
 - name: Test playbook for azure-create-vm
   hosts: localhost
   gather_facts: false
-  #user: ansible
+  user: ansible
   become: yes
 
   vars:
