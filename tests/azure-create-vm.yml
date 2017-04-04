@@ -14,7 +14,7 @@
     sku: 2012-R2-Datacenter
     version: latest
     resource_group: Mocatad_EV15_AS
-    os_type: windows
+    os_type: Windows
     public_ip_allocation_method: static
     started: true
     state: present
