@@ -1,0 +1,24 @@
+---
+- name: Test playbook for azure-prereqs
+  hosts: localhost
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars:
+    vm_name: windowstest1
+    admin_username: testadmin
+    admin_password: Password01
+    publisher: Microsoft
+    offer: WindowsServer
+    sku: 2012-R2-Datacenter
+    version: latest
+    resource_group: Mocatad_EV15_AS
+    os_type: windows
+    public_ip_allocation_method: static
+    started: true
+    state: present
+    vm_size: d1_v2
+
+  roles:
+    - azure-create-vm
