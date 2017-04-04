@@ -6,6 +6,10 @@
   become: yes
 
   vars:
+    subscription_id: 321a0e15-f849-4a60-bc00-31a7f21a45bb
+    tenant: dbc218fd-b8f5-4a62-9f50-b698b859feec
+    client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
+    secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     vm_name: windowstest1
     admin_username: testadmin
     admin_password: Password01
@@ -19,6 +23,7 @@
     started: true
     state: present
     vm_size: Standard_D1_v2
+
 
   roles:
     - azure-create-vm

@@ -1,5 +1,9 @@
 - name: Create Windows VM with defaults
   azure_rm_virtualmachine:
+    subscription_id: "{{ subscription_id }}"
+    tenant: "{{ tenant }}"
+    client_id: "{{ client_id }}"
+    secret: "{{ secret }}"
     resource_group: "{{ resource_group }}"
     name: "{{ vm_name }}"
     vm_size: "{{ vm_size }}"
