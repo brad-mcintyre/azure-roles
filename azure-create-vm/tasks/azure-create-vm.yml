@@ -15,4 +15,4 @@
       offer: "{{ offer }}"
       sku: "{{ sku }}"
       version: "{{ version }}"
-    register: output
+  register: output
