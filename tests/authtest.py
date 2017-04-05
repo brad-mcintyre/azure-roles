@@ -8,3 +8,7 @@ azure_credentials = ServicePrincipalCredentials(client_id="6b1400c3-5187-49af-a8
 subscription_id = "321a0e15-f849-4a60-bc00-31a7f21a45bb"
 print ResourceManagementClient(azure_credentials,
                                subscription_id).providers.register("Microsoft.Compute")
+
+client = ResourceManagementClient(azure_credentials, subscription_id)
+for item in client.resource_groups.list_resources("ansible-inventory-example"):
+    print item
