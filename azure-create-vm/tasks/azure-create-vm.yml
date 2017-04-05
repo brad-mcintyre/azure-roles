@@ -9,6 +9,8 @@
     vm_size: "{{ vm_size }}"
     admin_username: "{{ admin_username }}"
     admin_password: "{{ admin_password }}"
+    ad_user: b_mcintyre@hotmail.com
+    password: integra
     os_type: "{{ os_type }}"
     image:
       publisher: "{{ publisher }}"
