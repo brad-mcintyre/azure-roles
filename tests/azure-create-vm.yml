@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  #user: ansible
+  user: ansible
   become: yes
 
   vars:
@@ -11,11 +11,19 @@
     tenant: dbc218fd-b8f5-4a62-9f50-b698b859feec
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
-    vm_name: test
+    vm_name: wintest
+    admin_username: testadmin
+    admin_password: Password01
+    publisher: Microsoft
+    offer: WindowsServer
+    sku: 2012-R2-Datacenter
+    version: latest
     resource_group: Mocatad_EV15_AS
+    os_type: Windows
+    public_ip_allocation_method: static
     started: true
     state: present
-    
+    vm_size: Standard_D1_v2
 
   roles:
-    - azure-start-vm
+    - azure-create-vm
