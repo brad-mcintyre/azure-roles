@@ -11,7 +11,7 @@
     tenant: dbc218fd-b8f5-4a62-9f50-b698b859feec
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
-    vm_name: wintest
+    vm_name: test
     admin_username: testadmin
     admin_password: Password01
     publisher: Microsoft
