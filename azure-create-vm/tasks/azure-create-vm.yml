@@ -25,8 +25,8 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: testvm10
-    admin_username: chouseknecht
-    admin_password: <your password here>
+    admin_username: bradtest
+    admin_password: Password01
     image:
       offer: CentOS
       publisher: OpenLogic
