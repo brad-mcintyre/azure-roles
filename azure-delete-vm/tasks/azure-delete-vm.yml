@@ -5,4 +5,4 @@
     name: "{{ vm_name }}"
     state: absent
     remove_on_absent:
-      - all
+      
