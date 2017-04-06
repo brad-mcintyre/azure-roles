@@ -8,3 +8,4 @@
     resource_group: "{{ resource_group }}"
     name: testvm1-nic1
     virtual_network_name: Mocatad_EV15_AS-vnet
+    subnet_name: default
