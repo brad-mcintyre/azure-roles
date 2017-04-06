@@ -24,7 +24,7 @@
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
-    name: testvm10
+    name: testvm11
     admin_username: bradtest
     admin_password: Password01
     image:
