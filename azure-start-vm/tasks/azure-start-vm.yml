@@ -6,6 +6,5 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: "{{ vm_name }}"
-    allocated: True
     state: present
-    os_type: Linux
+    started: true
