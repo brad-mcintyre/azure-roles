@@ -25,8 +25,7 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: testvm10
-    public_ip_allocation_method:
-      got: none
+    public_ip_allocation_method: got
     admin_username: bradtest
     admin_password: Password01
     image:
