@@ -1,2 +1,2 @@
 ---
- - include: azure-create-vm.yml
+ - include: azure-create-network-interface.yml

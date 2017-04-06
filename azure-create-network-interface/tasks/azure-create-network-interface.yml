@@ -1,0 +1,10 @@
+---
+- name: Create Network Interface
+  azure_rm_networkinterface:
+    client_id: "{{ client_id }}"
+    secret: "{{ secret }}"
+    subscription_id: "{{ subscription_id }}"
+    tenant: "{{ tenant }}"
+    resource_group: "{{ resource_group }}"
+    name: testvm1-nic1
+    subnet_name: Mocatad_EV15_AS-vnet
