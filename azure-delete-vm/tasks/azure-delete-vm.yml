@@ -4,6 +4,7 @@
     resource_group: "{{ resource_group }}"
     name: "{{ vm_name }}"
     state: absent
-    remove_on_absent: all
+    remove_on_absent:
+      - all
   register: output
   when: remove_vm
