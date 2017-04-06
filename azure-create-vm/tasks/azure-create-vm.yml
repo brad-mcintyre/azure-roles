@@ -1,18 +1,34 @@
-- name: Create VM
+#- name: Create VM
+  #azure_rm_virtualmachine:
+    #client_id: "{{ client_id }}"
+    #secret: "{{ secret }}"
+    #subscription_id: "{{ subscription_id }}"
+    #tenant: "{{ tenant }}"
+    #resource_group: "{{ resource_group }}"
+    #name: "{{ vm_name }}"
+    #started: true
+    #vm_size: "{{ vm_size }}"
+    #admin_username: "{{ admin_username }}"
+    #admin_password: "{{ admin_password }}"
+    #os_type: "{{ os_type }}"
+    #image:
+      #publisher: "{{ publisher }}"
+      #offer: "{{ offer }}"
+      #sku: "{{ sku }}"
+      #version: "{{ version }}"
+
+- name: Create VM with defaults
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
-    name: "{{ vm_name }}"
-    started: true
-    vm_size: "{{ vm_size }}"
-    admin_username: "{{ admin_username }}"
-    admin_password: "{{ admin_password }}"
-    os_type: "{{ os_type }}"
+    name: testvm10
+    admin_username: chouseknecht
+    admin_password: <your password here>
     image:
-      publisher: "{{ publisher }}"
-      offer: "{{ offer }}"
-      sku: "{{ sku }}"
-      version: "{{ version }}"
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.1'
+      version: latest
