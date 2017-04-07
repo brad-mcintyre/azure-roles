@@ -6,7 +6,7 @@
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
-    name: "{{ item }}"-nic1
+    name: "{{ item }}-nic1"
     virtual_network_name: "{{ virtual_network_name }}"
     subnet_name: default
     public_ip: false
