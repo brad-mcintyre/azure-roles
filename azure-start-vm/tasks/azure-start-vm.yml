@@ -6,7 +6,8 @@
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
-    name: "{{ vm_name }}"
+    name: "{{ item }}"
     allocated: True
     state: present
     started: true
+    with_items: "{{ vm_name }}"
