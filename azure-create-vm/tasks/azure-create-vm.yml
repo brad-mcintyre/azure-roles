@@ -8,11 +8,11 @@
     resource_group: "{{ resource_group }}"
     name: "{{ item }}"
     network_interface_names: "{{ item }}"-nic1
-    admin_username: testadmin
-    admin_password: Password1234
+    admin_username: "{{ admin_username }}"
+    admin_password: "{{ admin_password}}"
     image:
       offer: "{{ offer }}"
       publisher: "{{ publisher }}"
       sku: "{{ sku }}"
       version: "{{ version }}"
-    with_items: "{{ vm_name }}"
+  with_items: "{{ vm_name }}"
