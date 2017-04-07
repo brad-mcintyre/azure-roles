@@ -7,7 +7,7 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: "{{ item }}"
-    network_interface_names: "{{ item }}"-nic1
+    network_interface_names: "{{ item }}-nic1"
     admin_username: "{{ admin_username }}"
     admin_password: "{{ admin_password}}"
     image:
