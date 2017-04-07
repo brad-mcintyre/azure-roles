@@ -1,3 +1,4 @@
+---
 - name: Start VM
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
