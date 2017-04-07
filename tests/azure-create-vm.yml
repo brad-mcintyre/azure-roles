@@ -15,6 +15,7 @@
       - testvm1
       - testvm2
     resource_group: Mocatad_EV15_AS
+    virtual_network_name: Mocatad_EV15_AS-vnet
     admin_username: testadmin
     admin_password: Password1234
     offer: CentOS
@@ -23,4 +24,5 @@
     version: latest
 
   roles:
+    - azure-create-network-interface
     - azure-create-vm
