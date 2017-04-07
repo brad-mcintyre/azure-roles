@@ -1,8 +1,9 @@
 
+---
 - name: Delete VM
   azure_rm_virtualmachine:
     resource_group: "{{ resource_group }}"
-    name: "{{ vm_name }}"
+    name: "{{ item }}"
     state: absent
     remove_on_absent:
-      
+  with_items: "{{ vm_name }}"

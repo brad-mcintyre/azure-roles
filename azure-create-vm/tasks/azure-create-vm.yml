@@ -1,5 +1,5 @@
 ---
-- name: Delete VM
+- name: Create VM
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
