@@ -6,6 +6,6 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: "{{ vm_name }}"
-    #allocated: True
-    #state: present
-    #started: true
+    allocated: True
+    state: present
+    started: true
