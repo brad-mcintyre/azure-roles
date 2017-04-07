@@ -10,4 +10,5 @@
     name: "{{ item }}"
     state: absent
     remove_on_absent:
+      - all
   with_items: "{{ vm_name }}"
