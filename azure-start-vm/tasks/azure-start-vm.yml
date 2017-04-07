@@ -8,4 +8,4 @@
     name: "{{ vm_name }}"
     allocated: True
     state: present
-    started: true
+    #started: true
