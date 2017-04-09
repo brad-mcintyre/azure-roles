@@ -10,5 +10,7 @@
     name: "{{ item }}"
     state: absent
     remove_on_absent:
-      - all
+      - network_interfaces
+      - virtual_storage
+      - public_ips
   with_items: "{{ vm_name }}"
