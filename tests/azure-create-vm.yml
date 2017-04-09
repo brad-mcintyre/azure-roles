@@ -12,8 +12,8 @@
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     vm_name:
-      - testvm1
-      - testvm2
+      - centostestvm1
+      - centostestvm2
     resource_group: Mocatad_EV15_AS
     virtual_network_name: Mocatad_EV15_AS-vnet
     admin_username: testadmin

@@ -15,8 +15,8 @@
     storage_account_type: Standard_LRS
     storage_account_kind: Storage
     vm_name:
-      - testvm1
-      - testvm2
+      - centostestvm1
+      - centostestvm2
 
   roles:
     - azure-create-storage-account
