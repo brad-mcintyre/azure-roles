@@ -8,6 +8,7 @@
     resource_group: "{{ resource_group }}"
     name: "{{ item }}"
     network_interface_names: "{{ item }}-nic1"
+    storage_account_name: "{{ item }}01"
     admin_username: "{{ admin_username }}"
     admin_password: "{{ admin_password}}"
     image:
