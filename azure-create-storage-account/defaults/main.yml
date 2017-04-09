@@ -1,0 +1,4 @@
+---
+  # defaults file for azure-create-storage-account
+
+storage_account_type: Standard_LRS

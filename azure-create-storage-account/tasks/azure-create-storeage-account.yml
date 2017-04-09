@@ -1,0 +1,12 @@
+---
+- name: Create Storage Account
+  azure_rm_virtualmachine:
+    client_id: "{{ client_id }}"
+    secret: "{{ secret }}"
+    subscription_id: "{{ subscription_id }}"
+    tenant: "{{ tenant }}"
+    resource_group: "{{ resource_group }}"
+    name: "{{ item }}-sa01"
+    account_type: "{{ storage_account_type }}"
+    kind: "{{ storage_account_kind }}"
+    state: present
