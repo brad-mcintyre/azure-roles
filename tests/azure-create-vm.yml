@@ -24,5 +24,6 @@
     version: latest
 
   roles:
+    - azure-create-storage-account
     - azure-create-network-interface
     - azure-create-vm
