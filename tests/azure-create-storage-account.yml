@@ -1,5 +1,5 @@
 ---
-- name: Test playbook for azure-create-network-interface
+- name: Test playbook for azure-create-storage-account
   hosts: localhost
   connection: local
   gather_facts: false

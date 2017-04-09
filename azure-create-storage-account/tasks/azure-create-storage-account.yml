@@ -1,6 +1,6 @@
 ---
 - name: Create Storage Account
-  azure_rm_virtualmachine:
+  azure_rm_storageaccount:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
     subscription_id: "{{ subscription_id }}"
