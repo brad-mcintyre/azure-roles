@@ -1,0 +1,2 @@
+---
+ - include: azure-delete-storage-account.yml
