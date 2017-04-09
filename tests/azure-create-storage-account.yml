@@ -13,7 +13,7 @@
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     resource_group: Mocatad_EV15_AS
     storage_account_type: Standard_LRS
-    storage_account_kind: storage
+    storage_account_kind: Storage
     vm_name:
       - testvm1
       - testvm2
