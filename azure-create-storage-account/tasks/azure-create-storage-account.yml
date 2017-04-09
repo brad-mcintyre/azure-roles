@@ -10,3 +10,4 @@
     account_type: "{{ storage_account_type }}"
     kind: "{{ storage_account_kind }}"
     state: present
+  with_items: "{{ vm_name }}"
