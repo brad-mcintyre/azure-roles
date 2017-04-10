@@ -13,4 +13,4 @@
     sku: '7.1'
   #register: azure_vmimages
 
-- debug: azure_vmimages
+- debug: "{{ azure_vmimages }}""
