@@ -11,6 +11,6 @@
     publisher: OpenLogic
     offer: CentOS
     sku: '7.1'
-  #register: azure_vmimages
+  register: azure_vmimages
 
 - debug: "{{ azure_vmimages }}""
