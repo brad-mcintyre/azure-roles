@@ -11,6 +11,6 @@
     publisher: OpenLogic
     offer: CentOS
     sku: '7.1'
-  register: output
+  register: azure_vmimages
 
-- debug: var=output
+- debug: var=azure_vmimages
