@@ -13,7 +13,8 @@
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     resource_group: Mocatad_EV15_AS
     vm_name:
-      - testvm1
+      - centostestvm1
+      - centostestvm2
 
   roles:
     - azure-delete-vm
