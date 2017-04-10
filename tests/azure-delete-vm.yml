@@ -17,3 +17,4 @@
 
   roles:
     - azure-delete-vm
+    - azure-delete-storage-account
