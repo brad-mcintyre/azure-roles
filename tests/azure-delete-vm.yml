@@ -19,3 +19,4 @@
   roles:
     - azure-delete-vm
     - azure-delete-storage-account
+    - azure-delete-security-group
