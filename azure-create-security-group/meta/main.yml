@@ -1,4 +1,2 @@
 ---
-#allow_duplicates: no
-#dependencies:
-#- { role: windows/common }
+  # meta file for azure-create-security-group

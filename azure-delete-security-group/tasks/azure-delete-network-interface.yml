@@ -1,0 +1,13 @@
+---
+- name: Create Network Interface
+  azure_rm_networkinterface:
+    client_id: "{{ client_id }}"
+    secret: "{{ secret }}"
+    subscription_id: "{{ subscription_id }}"
+    tenant: "{{ tenant }}"
+    resource_group: "{{ resource_group }}"
+    name: "{{ item }}-nic1"
+    virtual_network_name: "{{ virtual_network_name }}"
+    subnet_name: default
+    public_ip: false
+  with_items: "{{ vm_name }}"

@@ -1,0 +1,11 @@
+---
+- name: Delete Security Group
+  azure_rm_security_group:
+    client_id: "{{ client_id }}"
+    secret: "{{ secret }}"
+    subscription_id: "{{ subscription_id }}"
+    tenant: "{{ tenant }}"
+    resource_group: "{{ resource_group }}"
+    name: "{{ item }}-nic101"
+    state: absent
+  with_items: "{{ vm_name }}"
