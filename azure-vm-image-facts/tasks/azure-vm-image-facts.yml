@@ -10,7 +10,7 @@
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     publisher: OpenLogic
     offer: CentOS
-    sku: '7.1'
+    sku: 7.1
   register: result
 
 - debug:
