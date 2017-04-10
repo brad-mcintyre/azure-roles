@@ -11,3 +11,7 @@
     publisher: OpenLogic
     offer: CentOS
     sku: '7.1'
+  register: output
+
+- debug: var=output
+  when: playbook_debug
