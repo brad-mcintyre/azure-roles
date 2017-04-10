@@ -4,5 +4,5 @@
   user: ansible
   become: yes
 
-    roles:
+  roles:
     - azure-vm-image-facts
