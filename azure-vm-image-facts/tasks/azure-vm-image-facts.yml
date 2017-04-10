@@ -13,5 +13,4 @@
     sku: '7.1'
   register: output
 
-- debug: output
-  
+- debug: var=output
