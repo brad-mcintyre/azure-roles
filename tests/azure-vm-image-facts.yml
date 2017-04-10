@@ -1,8 +1,10 @@
 ---
 - name: Test playbook for azure-vm-image-facts
-  gather_facts: false
-  user: ansible
-  become: yes
+    hosts: localhost
+    connection: local
+    gather_facts: false
+    user: ansible
+    become: yes
 
   roles:
     - azure-vm-image-facts
