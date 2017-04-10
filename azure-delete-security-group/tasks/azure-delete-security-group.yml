@@ -6,6 +6,6 @@
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
-    name: "{{ item }}01"
+    name: "{{ item }}nic101"
     state: absent
   with_items: "{{ vm_name }}"
