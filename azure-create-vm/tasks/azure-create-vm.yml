@@ -16,4 +16,5 @@
       publisher: "{{ publisher }}"
       sku: "{{ sku }}"
       version: "{{ version }}"
+    os_type: "{{ os_type }}"
   with_items: "{{ vm_name }}"
