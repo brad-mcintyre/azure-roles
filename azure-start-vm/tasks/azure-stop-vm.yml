@@ -1,5 +1,5 @@
 ---
-- name: Power OOn
+- name: Power On
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
