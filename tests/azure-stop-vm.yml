@@ -5,8 +5,8 @@
   gather_facts: false
   user: ansible
   become: yes
-  #vars_files:
-    #- /var/lib/.vault/vault.yml
+  vars_files:
+    - /home/ansible/vault.yml
 
   vars:
     #subscription_id: 321a0e15-f849-4a60-bc00-31a7f21a45bb
