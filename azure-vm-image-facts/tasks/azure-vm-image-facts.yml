@@ -9,9 +9,6 @@
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     #publisher: OpenLogic
-    #offer: CentOS
+    offer: Windows
     #sku: 7.1
   register: result
-
-- debug:
-    var: result
