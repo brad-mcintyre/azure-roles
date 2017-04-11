@@ -26,7 +26,7 @@
     offer: WindowsServer
     sku: 2008-R2-SP1
     version: latest
-    os_type: windows
+    os_type: Windows
 
   roles:
     - azure-create-storage-account
