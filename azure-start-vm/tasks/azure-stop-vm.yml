@@ -1,5 +1,5 @@
 ---
-- name: Start VM
+- name: Power OOn
   azure_rm_virtualmachine:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"
@@ -7,7 +7,12 @@
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
     name: "{{ item }}"
-    allocated: True
-    state: present
-    started: true
-    with_items: "{{ vm_name }}"
+    started: yes
+  with_items: "{{ vm_name }}"
+  register: output
+
+- debug: var=output
+  when: playbook_debug
+
+- assert:
+    that: "azure_vm.powerstate in ['starting', 'running']"

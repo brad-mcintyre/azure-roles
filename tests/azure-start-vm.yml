@@ -13,8 +13,10 @@
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     resource_group: Mocatad_EV15_AS
     vm_name:
-      - testvm1
-      - test
+      - wintestvm1
+      - wintestvm2
+      - centostestvm1
+      - centostestvm2
 
   roles:
     - azure-start-vm
