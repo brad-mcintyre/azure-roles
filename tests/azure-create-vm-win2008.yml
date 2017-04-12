@@ -1,4 +1,5 @@
 ---
+# This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
 - name: Test playbook for azure-create-vm
   hosts: localhost
   connection: local
@@ -12,16 +13,12 @@
     client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
     secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     vm_name:
-      - centostestvm1
-      - centostestvm2
+      - win2008testvm1
+      - win2008testvm2
     resource_group: Mocatad_EV15_AS
     virtual_network_name: Mocatad_EV15_AS-vnet
     admin_username: testadmin
     admin_password: Password1234
-    #offer: CentOS
-    #publisher: OpenLogic
-    #sku: '7.1'
-    #version: latest
     publisher: MicrosoftWindowsServer
     offer: WindowsServer
     sku: 2008-R2-SP1

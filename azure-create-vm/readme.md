@@ -1,11 +1,32 @@
-# Manage Azure Virtual Machine
+# Create Azure Virtual Machine
 
 ## Overview
 
-Manages a Virtual Machine on the Azure platform
+Creates a Virtual Machine on the Azure platform
 
 ## Requirements
-Works on Azure platform
+This role require the following packages installed on ansible server.
+
+- python 2.7.x
+- ansible 2.2.x
+
+### yum packages
+  - python-pip (Required for pip package installs)
+  - gcc (Prereq for cryptography package)
+  - libffi-devel (Prereq for cryptography package)
+  - python-devel (Prereq for cryptography package)
+  - openssl-devel (Prereq for cryptography package)
+  - nodejs (Required for npm package installs)
+  - npm (Required for npm package installs)
+
+### npm packages
+  - azure-cli (Required for command line access to Azure)
+
+### pip packages
+  - cryptography (Prereq for msrestazure package)
+  - azure==2.0.0rc5 (Azure SDK package)
+  - msrestazure (Azure msrestazure package)
+
 
 ## Module used
 Ansibe module **azure_rm_virtualmachine**
