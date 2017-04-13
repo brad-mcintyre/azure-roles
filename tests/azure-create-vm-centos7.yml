@@ -26,6 +26,7 @@
     publisher: OpenLogic
     sku: '7.1'
     version: latest
+    vm_size: Standard_D1
     os_type: Linux
 
   roles:

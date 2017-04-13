@@ -31,7 +31,7 @@ This role require the following packages installed on ansible server.
 ## Module used
 Ansibe module **azure_rm_virtualmachine**
 
-## Variables
+## Available Module Parameters
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
 |ad_user|no| |<ul>|Active Directory username. Use when authenticating with an Active Directory user rather than service principal.|
@@ -69,69 +69,87 @@ Ansibe module **azure_rm_virtualmachine**
 |virtual_network_name|no||| When creating a virtual machine, if a network interface name is not provided, one will be created. The new network interface will be assigned to the first virtual network found in the resource group. Use this parameter to provide a specific virtual network instead. |
 |vm_size|no|Standard_D1|| A valid Azure VM size value. For example, 'Standard_D4'. The list of choices varies depending on the subscription and location. Check your subscription for available choices. |
 
+## Role Variables
+|variable|location|example|comments|
+|---|---|---|---|---|
+|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|admin_password|encrypted vault file| password123|Password for the admin username. |
+|admin_username|encrypted vault file|testadmin|Admin username used to access the host after it is created. |
+|vm_name|vars|testvm1|Name or list of names for the VMs|
+|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|publisher|vars|OpenLogic|Publisher of the Azure image|
+|offer|vars|CentOS|Offer of the Azure image|
+|sku|vars|7.1|SKU of the image|
+|version|vars|latest|Version of the virtual machine.|
+|network_interface_names|vars|testvm1-nic1|List of existing network interface names to add to the VM.|
+|storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
+|os_type|vars|Linux|Base type of operating system.|
+|vm_size|vars|Standard_D1| A valid Azure VM size value.|
 ## Examples
 
 ```
-- name: Create VM with defaults
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm10
-    admin_username: chouseknecht
-    admin_password: <your password here>
-    image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
-      version: latest
+---
+# This test playbook will create a Cenos 7.1 Virtual Machine
+- name: Test playbook for azure-create-vm
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
 
-- name: Create a VM with exiting storage account and NIC
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    vm_size: Standard_D4
-    storage_account: testaccount001
-    admin_username: adminUser
-    ssh_public_keys:
-      - path: /home/adminUser/.ssh/authorized_keys
-        key_data: < insert yor ssh public key here... >
-    network_interfaces: testvm001
-    image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
-      version: latest
+  vars_files:
+    - /home/ansible/vault.yml
 
-- name: Power Off
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    started: no
+  vars:
+    vm_name:
+      - centostestvm1
+      - centostestvm2
+    resource_group: Test_Env_1
+    virtual_network_name: Test_Env_1-vnet
+    offer: CentOS
+    publisher: OpenLogic
+    sku: '7.1'
+    version: latest
+    vm_size: Standard_D1
+    os_type: Linux
 
-- name: Deallocate
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    allocated: no
+  roles:
+    - azure-create-storage-account
+    - azure-create-network-interface
+    - azure-create-vm
 
-- name: Power On
-  azure_rm_virtualmachine:
-    resource_group:
-    name: testvm002
+    ---
+    # This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
+    - name: Test playbook for azure-create-vm
+      hosts: localhost
+      connection: local
+      gather_facts: false
+      user: ansible
+      become: yes
 
-- name: Restart
-  azure_rm_virtualmachine:
-    resource_group:
-    name: testvm002
-    restarted: yes
+      vars_files:
+        - /home/ansible/vault.yml
 
-- name: remove vm and all resources except public ips
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    state: absent
-    remove_on_absent:
-        - network_interfaces
-        - virtual_storage
+      vars:
+        vm_name:
+          - win2008testvm1
+          - win2008testvm2
+        resource_group: Test_Env_1
+        virtual_network_name: Test_Env_1-vnet
+        publisher: MicrosoftWindowsServer
+        offer: WindowsServer
+        sku: 2008-R2-SP1
+        version: latest
+        vm_size: Standard_D1
+        os_type: Windows
+
+      roles:
+        - azure-create-storage-account
+        - azure-create-network-interface
+        - azure-create-vm
 
 ```
 
@@ -139,8 +157,16 @@ Ansibe module **azure_rm_virtualmachine**
 Proprietary or whatever license from source OSS role this role is based upon.
 
 ## Author Information
-This role is maintained by: Datacom Systems (Wellington) Limited
-Team: UDM
-Contact Name:
-Contact E-mail:
-Contact Phone:
+Original author - Brad McIntyre.
+Last modified -
+
+This role is maintained by:
+--------------------------
+
+Datacom Systems (Wellington) Limited
+
+Team: UDM Team
+
+Contact Name: Brad McIntyre
+
+Contact E-mail: bradm@datacom.co.nz

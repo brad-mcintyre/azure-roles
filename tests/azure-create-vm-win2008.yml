@@ -26,6 +26,7 @@
     offer: WindowsServer
     sku: 2008-R2-SP1
     version: latest
+    vm_size: Standard_D1
     os_type: Windows
 
   roles:
