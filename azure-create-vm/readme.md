@@ -10,22 +10,24 @@ This role require the following packages installed on ansible server.
 - python 2.7.x
 - ansible 2.2.x
 
-### yum packages
-  - python-pip (Required for pip package installs)
-  - gcc (Prereq for cryptography package)
-  - libffi-devel (Prereq for cryptography package)
-  - python-devel (Prereq for cryptography package)
-  - openssl-devel (Prereq for cryptography package)
-  - nodejs (Required for npm package installs)
-  - npm (Required for npm package installs)
+The following required packages can be installed using the azure-prereqs role.
 
-### npm packages
-  - azure-cli (Required for command line access to Azure)
+##### yum packages
+- python-pip (Required for pip package installs)
+- gcc (Prereq for cryptography package)
+- libffi-devel (Prereq for cryptography package)
+- python-devel (Prereq for cryptography package)
+- openssl-devel (Prereq for cryptography package)
+- nodejs (Required for npm package installs)
+- npm (Required for npm package installs)
 
-### pip packages
-  - cryptography (Prereq for msrestazure package)
-  - azure==2.0.0rc5 (Azure SDK package)
-  - msrestazure (Azure msrestazure package)
+##### npm packages
+- azure-cli (Required for command line access to Azure)
+
+##### pip packages
+- cryptography (Prereq for msrestazure package)
+- azure==2.0.0rc5 (Azure SDK package)
+- msrestazure (Azure msrestazure package)
 
 
 ## Module used
@@ -88,6 +90,7 @@ Ansibe module **azure_rm_virtualmachine**
 |storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
 |os_type|vars|Linux|Base type of operating system.|
 |vm_size|vars|Standard_D1| A valid Azure VM size value.|
+
 ## Examples
 
 ```
@@ -122,34 +125,35 @@ Ansibe module **azure_rm_virtualmachine**
     - azure-create-vm
 
     ---
-    # This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
-    - name: Test playbook for azure-create-vm
-      hosts: localhost
-      connection: local
-      gather_facts: false
-      user: ansible
-      become: yes
 
-      vars_files:
-        - /home/ansible/vault.yml
+# This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
+- name: Test playbook for azure-create-vm
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
 
-      vars:
-        vm_name:
-          - win2008testvm1
-          - win2008testvm2
-        resource_group: Test_Env_1
-        virtual_network_name: Test_Env_1-vnet
-        publisher: MicrosoftWindowsServer
-        offer: WindowsServer
-        sku: 2008-R2-SP1
-        version: latest
-        vm_size: Standard_D1
-        os_type: Windows
+  vars_files:
+    - /home/ansible/vault.yml
 
-      roles:
-        - azure-create-storage-account
-        - azure-create-network-interface
-        - azure-create-vm
+  vars:
+    vm_name:
+      - win2008testvm1
+      - win2008testvm2
+    resource_group: Test_Env_1
+    virtual_network_name: Test_Env_1-vnet
+    publisher: MicrosoftWindowsServer
+    offer: WindowsServer
+    sku: 2008-R2-SP1
+    version: latest
+    vm_size: Standard_D1
+    os_type: Windows
+
+  roles:
+    - azure-create-storage-account
+    - azure-create-network-interface
+    - azure-create-vm
 
 ```
 
@@ -158,6 +162,7 @@ Proprietary or whatever license from source OSS role this role is based upon.
 
 ## Author Information
 Original author - Brad McIntyre.
+
 Last modified -
 
 This role is maintained by:
