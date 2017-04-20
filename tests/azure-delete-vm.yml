@@ -15,9 +15,9 @@
     resource_group: Mocatad_EV15_AS
     vm_name:
       - centostestvm1
-      #- centostestvm2
-      #- win2008testvm1
-      #- win2008testvm2
+      - centostestvm2
+      - win2008testvm1
+      - win2008testvm2
     remove_on_absent:
       - network_interfaces
       - virtual_storage
@@ -25,5 +25,5 @@
 
   roles:
     - azure-delete-vm
-    #- azure-delete-storage-account
-    #- azure-delete-security-group
+    - azure-delete-storage-account
+    - azure-delete-security-group
