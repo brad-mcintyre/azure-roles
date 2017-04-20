@@ -1,2 +1,2 @@
 ---
- - include: azure-delete-network-interface.yml
+ - include: azure-create-security-group.yml

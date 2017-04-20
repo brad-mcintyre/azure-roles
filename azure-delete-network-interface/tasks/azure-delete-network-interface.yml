@@ -1,5 +1,5 @@
 ---
-- name: Delete Security Group
+- name: Delete Network Interface
   azure_rm_security_group:
     client_id: "{{ client_id }}"
     secret: "{{ secret }}"

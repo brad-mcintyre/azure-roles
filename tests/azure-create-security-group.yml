@@ -1,6 +1,6 @@
 ---
-# This test playbook will create a storage account
-- name: Test playbook for azure-create-storage-account
+# This test playbook will create a security group
+- name: Test playbook for azure-create-security-group
   hosts: localhost
   connection: local
   gather_facts: false
@@ -12,8 +12,6 @@
 
   vars:
     resource_group: Mocatad_EV15_AS
-    storage_account_type: Standard_LRS
-    storage_account_kind: Storage
     vm_name:
       - centostestvm1
       - centostestvm2

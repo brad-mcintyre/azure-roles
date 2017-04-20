@@ -1,6 +1,6 @@
 ---
-  # This test playbook will delete a storage account
-- name: Test playbook for azure-create-storage-account
+# This test playbook will delete a network interface
+- name: Test playbook for azure-delete-network-interface
   hosts: localhost
   connection: local
   gather_facts: false
@@ -17,4 +17,4 @@
       #- centostestvm2
 
   roles:
-    - azure-delete-storage-account
+    - azure-delete-network-interface

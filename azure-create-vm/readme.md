@@ -32,6 +32,8 @@ The following required packages can be installed using the azure-prereqs role.
 
 ## Module used
 - Ansible Cloud Module **azure_rm_virtualmachine**
+ - Create, update, stop and start a virtual machine.
+
 
 ## Available 'azure_rm_virtualmachine' Module Parameters
 |parameter|required|default|choices|comments|

@@ -1,4 +1,5 @@
 ---
+# This test playbook will create a network interface
 - name: Test playbook for azure-create-network-interface
   hosts: localhost
   connection: local
@@ -6,11 +7,10 @@
   user: ansible
   become: yes
 
+  vars_files:
+    - /home/ansible/vault.yml
+
   vars:
-    subscription_id: 321a0e15-f849-4a60-bc00-31a7f21a45bb
-    tenant: dbc218fd-b8f5-4a62-9f50-b698b859feec
-    client_id: 6b1400c3-5187-49af-a87c-d2ab9bda657c
-    secret: U8pm17n2VwbcTJk8FkeqDoILDHjPlyH7gorINdJgXjE=
     resource_group: Mocatad_EV15_AS
     virtual_network_name: Mocatad_EV15_AS-vnet
     vm_name:
