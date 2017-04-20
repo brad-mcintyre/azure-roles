@@ -6,6 +6,8 @@
     subscription_id: "{{ subscription_id }}"
     tenant: "{{ tenant }}"
     resource_group: "{{ resource_group }}"
+    admin_username: "{{ admin_username }}"
+    admin_password: "{{ admin_password}}"
     name: "{{ item }}"
     restarted: yes
   with_items: "{{ vm_name }}"
