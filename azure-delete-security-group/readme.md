@@ -51,20 +51,26 @@ The following required packages can be installed using the azure-prereqs role.
 |rules|no||See Dictionary object rules table below|Set of rules shaping traffic flow to or from a subnet or NIC. Each rule is a dictionary.|
 |source_address_prefix|no|*||IP address or CIDR from which traffic originates.|
 |secret|no||| Azure client secret. Use when authenticating with a Service Principal.|
-|short_hostname|no|||Name assigned internally to the host. On a linux VM this is the name returned by the `hostname` command. When creating a virtual machine, short_hostname defaults to name.|
-|ssh_password_enabled|no|True||When the os_type is Linux, setting ssh_password_enabled to false will disable SSH password authentication and require use of SSH keys.|
-|ssh_public_keys|no||| For os_type Linux provide a list of SSH keys. Each item in the list should be a dictionary where the dictionary contains two keys: path and key_data. Set the path to the default location of the authorized_keys files. On an Enterprise Linux host, for example, the path will be /home/<admin username>/.ssh/authorized_keys. Set key_data to the actual value of the public key. |
-|started|no|True|<ul><li>True</li><li>False</li></li>|Use with state 'present' to start the machine. Set to false to have the machine be 'stopped'.|
-|state|no|Present|<ul><li>Absent</li><li>Present</li></li>|AAssert the state of the virtual machine.State 'present' will check that the machine exists with the requested configuration. If the configuration of the existing machine does not match, the machine will be updated. Use options started, allocated and restarted to change the machine's power state. State 'absent' will remove the virtual machine.|
-|storage_account_name|no|||Name of an existing storage account that supports creation of VHD blobs. If not specified for a new VM, a new storage account named <vm name>01 will be created using storage type 'Standard_LRS'.|
-|storage_blob_name|no|||Name fo the storage blob used to hold the VM's OS disk image. If no name is provided, defaults to the VM name + '.vhd'. If you provide a name, it must end with '.vhd'|
-|storage_container_name|no| vhds ||Name of the container to use within the storage account to store VHD blobs. If no name is specified a default container will created.|
-|subnet_name|no|||When creating a virtual machine, if a network interface name is not provided, one will be created. The new network interface will be assigned to the first subnet found in the virtual network. Use this parameter to provide a specific subnet instead.|
+|state|no|present|<ul><li>absent</li><li>present</li>|Assert the state of the security group. Set to 'present' to create or update a security group. Set to 'absent' to remove a security group.|
 |subscription_id|no|||Your Azure subscription Id.|
 |tags|no|||Dictionary of string:string pairs to assign as metadata to the object. Metadata tags on the object will be updated with any provided values. To remove tags set append_tags option to false. |
 |tenant|no|||Azure tenant ID. Use when authenticating with a Service Principal.|
-|virtual_network_name|no||| When creating a virtual machine, if a network interface name is not provided, one will be created. The new network interface will be assigned to the first virtual network found in the resource group. Use this parameter to provide a specific virtual network instead. |
-|vm_size|no|Standard_D1|| A valid Azure VM size value. For example, 'Standard_D4'. The list of choices varies depending on the subscription and location. Check your subscription for available choices. |
+
+###Dictionary object rules###
+|parameter|required|default|choices|comments|
+|---|---|---|---|---|
+|source_address_prefix|no|* ||IP address or CIDR from which traffic originates.|
+|destination_address_prefix|no|*||IP address or CIDR to which traffic is headed.|
+|protocol|no|*|<ul><li>Udp</li><li>Tcp</li><li>*</li><ul>|Accepted traffic Protocol.|
+|name|yes|||Unique name for the rule. 
+|description|no|||Short description of the rule's purpose.|
+|direction|no|Inbound|<ul><li>Inbound</li><li>Outbound</li><ul>|Indicates the direction of the traffic flow.|
+|access|no|Allow|<ul><li>allow</li><li>deny</li><ul>|Whether or not to allow the traffic flow.|
+|source_port_range|no|*|| Port or range of ports from which traffic originates. |
+|destination_port_range|no|*||Port or range of ports to which traffic is headed.|
+|priority|yes|||Order in which to apply the rule. Must a unique integer between 100 and 4096 inclusive.|
+
+
 
 ## Role Variables
 |variable|location|example|comments|

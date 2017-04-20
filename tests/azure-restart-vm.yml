@@ -1,6 +1,6 @@
 ---
-# This test playbook will stop a virtual machine 
-- name: Test playbook for azure-stop-vm
+# This test playbook will restart a virtual machine
+- name: Test playbook for azure-restart-vm
   hosts: localhost
   connection: local
   gather_facts: false
@@ -14,9 +14,9 @@
     resource_group: Mocatad_EV15_AS
     vm_name:
       - wintestvm1
-      - wintestvm2
-      - centostestvm1
-      - centostestvm2
+      #- wintestvm2
+      #- centostestvm1
+      #- centostestvm2
 
   roles:
-    - azure-stop-vm
+    - azure-restart-vm
