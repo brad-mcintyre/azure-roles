@@ -1,0 +1,22 @@
+---
+# This test playbook will deallocate a virtual machine
+- name: Test playbook for azure-deallocate-vm
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars_files:
+    - /home/ansible/vault.yml
+
+  vars:
+    resource_group: Mocatad_EV15_AS
+    vm_name:
+      - win2008testvm1
+      #- win2008testvm2
+      - centostestvm1
+      #- centostestvm2
+
+  roles:
+    - azure-deallocate-vm

@@ -1,2 +1,2 @@
 ---
- - include: tasks/azure-vmfacts.yml
+ - include: azure-deallocate-vm.yml
