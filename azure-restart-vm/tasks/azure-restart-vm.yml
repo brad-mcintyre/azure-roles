@@ -10,6 +10,7 @@
     admin_password: "{{ admin_password}}"
     name: "{{ item }}"
     restarted: yes
+    state: present
   with_items: "{{ vm_name }}"
   register: output
 
