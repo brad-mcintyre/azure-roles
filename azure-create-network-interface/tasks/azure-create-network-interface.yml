@@ -9,5 +9,5 @@
     name: "{{ item }}-nic1"
     virtual_network_name: "{{ virtual_network_name }}"
     subnet_name: default
-    public_ip: false
+    public_ip: "{{ public_ip }}"
   with_items: "{{ vm_name }}"

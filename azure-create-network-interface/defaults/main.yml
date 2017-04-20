@@ -1,2 +1,3 @@
 ---
   # defaults file for azure-create-network-interface
+public_ip: false

@@ -31,32 +31,25 @@ The following required packages can be installed using the azure-prereqs role.
 
 
 ## Module used
-- Ansible Cloud Module **azure_rm_virtualmachine**
- - Create, update, stop and start a virtual machine.
+- Ansible Cloud Module **azure_rm_securitygroup**
+ - Create, update or delete a network security group.
 
 
-## Available 'azure_rm_virtualmachine' Module Parameters
+## Available 'azure_rm_securitygroup' Module Parameters
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
 |ad_user|no| |<ul>|Active Directory username. Use when authenticating with an Active Directory user rather than service principal.|
-|admin_password|no| |<ul>|Password for the admin username. Not required if the os_type is Linux and SSH password authentication is disabled by setting ssh_password_enabled to false.|
-|admin_username|no|||Admin username used to access the host after it is created. Required when creating a VM.|
-|allocated|no|True|<ul><li>True</li><li>False</li></li>|Toggle that controls if the machine is allocated/deallocated, only useful with state='present'.|
 |append_tags|no|True|<ul><li>True</li><li>False</li></li>|Use to control if tags field is canonical or just appends to existing tags. When canonical, any tags not found in the tags parameter will be removed from the object's metadata.|
 |client_id|no|||Azure client ID. Use when authenticating with a Service Principal.|
-|image|yes|||A dictionary describing the Marketplace image used to build the VM. Will contain keys: publisher, offer, sku and version. NOTE: set image.version to 'latest' to get the most recent version of a given image.|
+|default_rules|no|||The set of default rules automatically added to a security group at creation. In general default rules will not be modified. Modify rules to shape the flow of traffic to or from a subnet or NIC. See rules below for the makeup of a rule dict.|
 |location|no|||Valid Azure location. Defaults to location of the resource group.|
-|name|yes|||Name of the virtual machine.|
-|network_interface_names|no|||List of existing network interface names to add to the VM. If a network interface name is not provided when the VM is created, a default network interface will be created. In order for the module to create a network interface, at least one Virtual Network with one Subnet must exist.|
-|open_ports|no|||If a network interface is created when creating the VM, a security group will be created as well. For Linux hosts a rule will be added to the security group allowing inbound TCP connections to the default SSH port 22, and for Windows hosts ports 3389 and 5986 will be opened. Override the default open ports by providing a list of ports.|
-|os_disk_caching|no|ReadOnly|<ul><li>ReadOnly</li><li>ReadWrite</li></li>|Type of OS disk caching.|
-|os_type|no|Linux|<ul><li>Windows</li><li>Linux</li></li>|Base type of operating system.|
+|name|yes|||Name of the security group to operate on.|
 |password|no|||Active Directory user password. Use when authenticating with an Active Directory user rather than service principal.|
 |profile|no|||Security profile found in ~/.azure/credentials file.|
-|public_ip_allocation_method|no|Static|<ul><li>Dynamic</li><li>Static</li></li>|If a public IP address is created when creating the VM (because a Network Interface was not provided), determines if the public IP address remains permanently associated with the Network Interface. If set to 'Dynamic' the public IP address may change any time the VM is rebooted or power cycled.|
-|remove_on_absent|no|All||When removing a VM using state 'absent', also remove associated resources.It can be 'all' or a list with any of the following: ['network_interfaces', 'virtual_storage', 'public_ips'].Any other input will be ignored|
-|resource_group|yes|||Name of the resource group containing the virtual machine.|
-|restarted|no|||Use with state 'present' to restart a running VM.|
+|purge_default_rules|no|||Remove any existing rules not matching those defined in the default_rules parameter.|
+|resource_group|yes|||Name of the resource group the security group belongs to. |
+|rules|no||See Dictionary object rules table below|Set of rules shaping traffic flow to or from a subnet or NIC. Each rule is a dictionary.|
+|source_address_prefix|no|*||IP address or CIDR from which traffic originates.|
 |secret|no||| Azure client secret. Use when authenticating with a Service Principal.|
 |short_hostname|no|||Name assigned internally to the host. On a linux VM this is the name returned by the `hostname` command. When creating a virtual machine, short_hostname defaults to name.|
 |ssh_password_enabled|no|True||When the os_type is Linux, setting ssh_password_enabled to false will disable SSH password authentication and require use of SSH keys.|

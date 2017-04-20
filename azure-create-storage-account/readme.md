@@ -1,16 +1,41 @@
-# Manage Azure Virtual Machine
+# Create Azure Storage Account
 
 ## Overview
 
-Manages a Virtual Machine on the Azure platform
+Creates a Storage Account on the Azure platform
 
-## Requirements
-Works on Azure platform
+## Requirements (on host that executes modules)
+This role requires the following packages to be already installed on Ansible server.
+
+- python 2.7.x
+- ansible 2.2.x
+
+The following required packages can be installed using the azure-prereqs role.
+
+##### yum packages
+- python-pip (Required for pip package installs)
+- gcc (Prereq for cryptography package)
+- libffi-devel (Prereq for cryptography package)
+- python-devel (Prereq for cryptography package)
+- openssl-devel (Prereq for cryptography package)
+- nodejs (Required for npm package installs)
+- npm (Required for npm package installs)
+
+##### npm packages
+- azure-cli (Required for command line access to Azure)
+
+##### pip packages
+- cryptography (Prereq for msrestazure package)
+- azure==2.0.0rc5 (Azure SDK package)
+- msrestazure (Azure msrestazure package)
+
 
 ## Module used
-Ansibe module **azure_rm_virtualmachine**
+- Ansible Cloud Module **azure_rm_virtualmachine**
+ - Create, update, stop and start a virtual machine.
 
-## Variables
+
+## Available 'azure_rm_virtualmachine' Module Parameters
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
 |ad_user|no| |<ul>|Active Directory username. Use when authenticating with an Active Directory user rather than service principal.|
@@ -48,78 +73,62 @@ Ansibe module **azure_rm_virtualmachine**
 |virtual_network_name|no||| When creating a virtual machine, if a network interface name is not provided, one will be created. The new network interface will be assigned to the first virtual network found in the resource group. Use this parameter to provide a specific virtual network instead. |
 |vm_size|no|Standard_D1|| A valid Azure VM size value. For example, 'Standard_D4'. The list of choices varies depending on the subscription and location. Check your subscription for available choices. |
 
+## Role Variables
+|variable|location|example|comments|
+|---|---|---|---|---|
+|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|vm_name|vars|testvm1|Name or list of names for the VMs|
+|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
+|account_type|vars|<ul><li>Standard_GRS</li><li>Standard_LRS (default)</li><li>Standard_RAGRS</li><li>Standard_ZRS</li><li>Premium_LRS</li><ul>| Type of Storage|
+|kind|vars|<ul><li>Storage (default)</li><li>StorageBlob</li><ul>|Kind of Storage|
+
+
 ## Examples
 
-```
-- name: Create VM with defaults
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm10
-    admin_username: chouseknecht
-    admin_password: <your password here>
-    image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
-      version: latest
+~~~
+---
+# This test playbook will create a storage account
+- name: Test playbook for azure-create-storage-account
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
 
-- name: Create a VM with exiting storage account and NIC
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    vm_size: Standard_D4
-    storage_account: testaccount001
-    admin_username: adminUser
-    ssh_public_keys:
-      - path: /home/adminUser/.ssh/authorized_keys
-        key_data: < insert yor ssh public key here... >
-    network_interfaces: testvm001
-    image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
-      version: latest
+  vars_files:
+    - /home/ansible/vault.yml
 
-- name: Power Off
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    started: no
+  vars:
+    resource_group: Test_Env_1
+    storage_account_type: Standard_LRS
+    storage_account_kind: Storage
+    vm_name:
+      - centostestvm1
+      - centostestvm2
 
-- name: Deallocate
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    allocated: no
-
-- name: Power On
-  azure_rm_virtualmachine:
-    resource_group:
-    name: testvm002
-
-- name: Restart
-  azure_rm_virtualmachine:
-    resource_group:
-    name: testvm002
-    restarted: yes
-
-- name: remove vm and all resources except public ips
-  azure_rm_virtualmachine:
-    resource_group: Testing
-    name: testvm002
-    state: absent
-    remove_on_absent:
-        - network_interfaces
-        - virtual_storage
-
-```
+  roles:
+    - azure-create-storage-account
+~~~
 
 ## License
 Proprietary or whatever license from source OSS role this role is based upon.
 
 ## Author Information
-This role is maintained by: Datacom Systems (Wellington) Limited
-Team: UDM
-Contact Name:
-Contact E-mail:
-Contact Phone:
+Original author - Brad McIntyre.
+
+Last modified -
+
+This role is maintained by:
+--------------------------
+
+Datacom Systems (Wellington) Limited
+
+Team: UDM Team
+
+Contact Name: Brad McIntyre
+
+Contact E-mail: bradm@datacom.co.nz
