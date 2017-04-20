@@ -1,2 +1,3 @@
 ---
   # defaults file for azure-delete-vm
+remove_on_absent: {}

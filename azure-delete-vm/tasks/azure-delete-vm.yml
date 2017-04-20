@@ -9,8 +9,5 @@
     resource_group: "{{ resource_group }}"
     name: "{{ item }}"
     state: absent
-    remove_on_absent:
-      - network_interfaces
-      - virtual_storage
-      - public_ips
+    remove_on_absent: {{ remove_on_absent }}
   with_items: "{{ vm_name }}"

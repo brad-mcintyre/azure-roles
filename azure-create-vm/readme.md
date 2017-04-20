@@ -4,8 +4,8 @@
 
 Creates a Virtual Machine on the Azure platform
 
-## Requirements
-This role require the following packages installed on ansible server.
+## Requirements (on host that executes modules)
+This role requires the following packages to be already installed on Ansible server.
 
 - python 2.7.x
 - ansible 2.2.x
@@ -31,9 +31,9 @@ The following required packages can be installed using the azure-prereqs role.
 
 
 ## Module used
-Ansibe module **azure_rm_virtualmachine**
+- Ansible Cloud Module **azure_rm_virtualmachine**
 
-## Available Module Parameters
+## Available 'azure_rm_virtualmachine' Module Parameters
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
 |ad_user|no| |<ul>|Active Directory username. Use when authenticating with an Active Directory user rather than service principal.|
@@ -93,7 +93,7 @@ Ansibe module **azure_rm_virtualmachine**
 
 ## Examples
 
-```
+~~~
 ---
 # This test playbook will create a Cenos 7.1 Virtual Machine
 - name: Test playbook for azure-create-vm
@@ -155,7 +155,7 @@ Ansibe module **azure_rm_virtualmachine**
     - azure-create-network-interface
     - azure-create-vm
 
-```
+~~~
 
 ## License
 Proprietary or whatever license from source OSS role this role is based upon.

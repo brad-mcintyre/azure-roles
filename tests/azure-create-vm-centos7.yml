@@ -13,7 +13,7 @@
   vars:
     vm_name:
       - centostestvm1
-      - centostestvm2
+      #- centostestvm2
     resource_group: Mocatad_EV15_AS
     virtual_network_name: Mocatad_EV15_AS-vnet
     offer: CentOS
