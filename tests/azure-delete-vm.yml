@@ -18,6 +18,10 @@
       #- centostestvm2
       #- win2008testvm1
       #- win2008testvm2
+    remove_on_absent:
+      - network_interfaces
+      - virtual_storage
+      - public_ips
 
   roles:
     - azure-delete-vm
