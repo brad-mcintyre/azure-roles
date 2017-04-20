@@ -10,9 +10,3 @@
     started: yes
   with_items: "{{ vm_name }}"
   register: output
-
-- debug: var=output
-  when: playbook_debug
-
-- assert:
-    that: "azure_vm.powerstate in ['starting', 'running']"
