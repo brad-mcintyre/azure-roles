@@ -13,9 +13,9 @@
   vars:
     resource_group: Mocatad_EV15_AS
     vm_name:
-      - wintestvm1
-      #- wintestvm2
-      #- centostestvm1
+      - win2008testvm1
+      #- win2008testvm2
+      - centostestvm1
       #- centostestvm2
 
   roles:

@@ -1,5 +1,5 @@
 ---
-# This test playbook will stop a virtual machine 
+# This test playbook will stop a virtual machine
 - name: Test playbook for azure-stop-vm
   hosts: localhost
   connection: local
@@ -13,10 +13,10 @@
   vars:
     resource_group: Mocatad_EV15_AS
     vm_name:
-      - wintestvm1
-      - wintestvm2
+      - win2008testvm1
+      #- win2008testvm2
       - centostestvm1
-      - centostestvm2
+      #- centostestvm2
 
   roles:
     - azure-stop-vm
