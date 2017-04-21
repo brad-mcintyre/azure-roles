@@ -1,8 +1,8 @@
-# Create Azure Network Interface
+# Delete Azure Public IP Address
 
 ## Overview
 
-Creates a Network Interface on the Azure platform
+Deletes a Public IP Address on the Azure platform
 
 ## Requirements (on host that executes modules)
 This role requires the following packages to be already installed on Ansible server.
@@ -28,8 +28,6 @@ The following required packages can be installed using the azure-prereqs role.
 - cryptography (Prereq for msrestazure package)
 - azure==2.0.0rc5 (Azure SDK package)
 - msrestazure (Azure msrestazure package)
-
-
 
 ## Module used
 - Ansible Cloud Module **azure_rm_publicipaddress**
@@ -58,12 +56,12 @@ The following required packages can be installed using the azure-prereqs role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 |azure_public_ip_allocation_method|vars|Static|Public IP Allocation Method|
 
 
