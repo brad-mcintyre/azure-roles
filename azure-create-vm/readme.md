@@ -76,22 +76,22 @@ The following required packages can be installed using the azure-prereqs role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|admin_password|encrypted vault file| password123|Password for the admin username. |
-|admin_username|encrypted vault file|testadmin|Admin username used to access the host after it is created. |
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-|publisher|vars|OpenLogic|Publisher of the Azure image|
-|offer|vars|CentOS|Offer of the Azure image|
-|sku|vars|7.1|SKU of the image|
-|version|vars|latest|Version of the virtual machine.|
-|network_interface_names|vars|testvm1-nic1|List of existing network interface names to add to the VM.|
-|storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
-|os_type|vars|Linux|Base type of operating system.|
-|vm_size|vars|Standard_D1| A valid Azure VM size value.|
+|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|azure_admin_password|encrypted vault file| password123|Password for the admin username. |
+|azure_admin_username|encrypted vault file|testadmin|Admin username used to access the host after it is created. |
+|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|azure_publisher|vars|OpenLogic|Publisher of the Azure image|
+|azure_offer|vars|CentOS|Offer of the Azure image|
+|azure_sku|vars|7.1|SKU of the image|
+|azure_version|vars|latest|Version of the virtual machine.|
+|azure_network_interface_names|vars|testvm1-nic1|List of existing network interface names to add to the VM.|
+|azure_storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
+|azure_os_type|vars|Linux|Base type of operating system.|
+|azure_vm_size|vars|Standard_D1| A valid Azure VM size value.|
 
 ## Examples
 
@@ -109,17 +109,17 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    vm_name:
+    azure_vm_name:
       - centostestvm1
       - centostestvm2
-    resource_group: Test_Env_1
-    virtual_network_name: Test_Env_1-vnet
-    offer: CentOS
-    publisher: OpenLogic
-    sku: '7.1'
-    version: latest
-    vm_size: Standard_D1
-    os_type: Linux
+    azure_resource_group: Test_Env_1
+    azure_virtual_network_name: Test_Env_1-vnet
+    azure_offer: CentOS
+    azure_publisher: OpenLogic
+    azure_sku: '7.1'
+    azure_version: latest
+    azure_vm_size: Standard_D1
+    azure_os_type: Linux
 
   roles:
     - azure-create-storage-account
@@ -140,17 +140,17 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    vm_name:
+    azure_vm_name:
       - win2008testvm1
       - win2008testvm2
-    resource_group: Test_Env_1
-    virtual_network_name: Test_Env_1-vnet
-    publisher: MicrosoftWindowsServer
-    offer: WindowsServer
-    sku: 2008-R2-SP1
-    version: latest
-    vm_size: Standard_D1
-    os_type: Windows
+    azure_resource_group: Test_Env_1
+    azure_virtual_network_name: Test_Env_1-vnet
+    azure_publisher: MicrosoftWindowsServer
+    azure_offer: WindowsServer
+    azure_sku: 2008-R2-SP1
+    azure_version: latest
+    azure_vm_size: Standard_D1
+    azure_os_type: Windows
 
   roles:
     - azure-create-storage-account

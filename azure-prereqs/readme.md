@@ -89,7 +89,7 @@ The following packages are installed as part of this role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|prereq_yum_packages|vars|<ul><li>python-pip</li><li>gcc</li><li>libffi-devel</li><li>python-devel</li><li>openssl-devel</li><li>nodejs</li><li>npm</li><ul>|List of yum packages to install in order of install preference|
+|azure_prereq_yum_packages|vars|<ul><li>python-pip</li><li>gcc</li><li>libffi-devel</li><li>python-devel</li><li>openssl-devel</li><li>nodejs</li><li>npm</li><ul>|List of yum packages to install in order of install preference|
 |azure_npm_packages|vars|<ul><li>azure-cli</li><ul>|List of npm packages to install in order of install preference|
 |azure_pip_packagesvars|vars|<ul><li>cryptography</li><li>azure==2.0.0rc5</li><li>msrestazure</li><ul>|List of pip packages to install in order of install preference|
 
@@ -105,7 +105,7 @@ The following packages are installed as part of this role.
   become: yes
 
   vars:
-    prereq_yum_packages:
+    azure_prereq_yum_packages:
       - python-pip
       - gcc
       - libffi-devel
@@ -117,7 +117,7 @@ The following packages are installed as part of this role.
     azure_npm_packages:
       - azure-cli
 
-      azure_pip_packages:
+    azure_pip_packages:
       - cryptography
       - azure==2.0.0rc5
       - msrestazure

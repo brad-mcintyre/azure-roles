@@ -58,15 +58,15 @@ The following required packages can be installed using the azure-prereqs role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-|virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
-|account_type|vars|<ul><li>Standard_GRS</li><li>Standard_LRS (default)</li><li>Standard_RAGRS</li><li>Standard_ZRS</li><li>Premium_LRS</li><ul>| Type of Storage|
-|kind|vars|<ul><li>Storage (default)</li><li>StorageBlob</li><ul>|Kind of Storage|
+|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|azure_virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
+|azure_storage_account_type|vars|<ul><li>Standard_GRS</li><li>Standard_LRS (default)</li><li>Standard_RAGRS</li><li>Standard_ZRS</li><li>Premium_LRS</li><ul>| Type of Storage|
+|azure_storage_account_kind|vars|<ul><li>Storage (default)</li><li>StorageBlob</li><ul>|Kind of Storage|
 
 
 ## Examples
@@ -85,10 +85,10 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Test_Env_1
-    storage_account_type: Standard_LRS
-    storage_account_kind: Storage
-    vm_name:
+    azure_resource_group: Test_Env_1
+    azure_storage_account_type: Standard_LRS
+    azure_storage_account_kind: Storage
+    azure_vm_name:
       - centostestvm1
       - centostestvm2
 

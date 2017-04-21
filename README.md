@@ -2,6 +2,8 @@
 
 ## Overview
 
+**NOTE:** All testing of these Azure roles was done on Ansible 2.3 installed on RHEL 7.3. The Ansible Host was located in Azure inside the Resource Group being used.
+
 This repository contains the following Ansible roles related to managing Azure Virtual Machines:
 
 |Role Name|Function|
@@ -22,7 +24,7 @@ This repository contains the following Ansible roles related to managing Azure V
 |azure-stop-vm|Stops a Virtual Machine|
 
 ## Requirements (on host that executes modules)
-These roles require the following packages to be already installed on Ansible server.
+These roles require the following packages to be already installed on the Ansible server.
 
 - python 2.7.x
 - ansible 2.2.x
@@ -46,6 +48,35 @@ The following required packages can be installed using the azure-prereqs role.
 - azure==2.0.0rc5 (Azure SDK package)
 - msrestazure (Azure msrestazure package)
 
+##Authenticating with Azure##
+
+Using the Azure Resource Manager modules requires authenticating with the Azure API. You can choose from two authentication strategies:
+
+- Active Directory Username/Password
+- Service Principal Credentials
+
+All the Azure roles in this repository are configured to Service Principle Credentials.
+
+Service Principle Authentication requires the following:
+
+- Your Client ID, which is found in the “client id” box in the “Configure” page of your application in the Azure portal
+- Your Secret key, generated when you created the application. You cannot show the key after creation. If you lost the key, you must create a new one in the “Configure” page of your application.
+- And finally, a tenant ID. It’s a UUID (e.g. ABCDEFGH-1234-ABCD-1234-ABCDEFGHIJKL) pointing to the AD containing your application. You will find it in the URL from within the Azure portal, or in the “view endpoints” of any given URL.
+
+**NOTE:** The Service Principle Account must have Contributor permissions at the subscription level not just the Resource Group level.
+
+##Ansible Vault##
+
+These roles have been configured and tested using Ansible Vault. The following variables have been set in Ansible Vault.
+
+|variable|location|example|comments|
+|---|---|---|---|---|
+|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|azure_admin_password|encrypted vault file| password123|Password for the admin username. |
+|azure_admin_username|encrypted vault file|testadmin|Admin username used to access the host after it is created. |
 
 ## Modules used
 - Ansible Packaging Module **yum**

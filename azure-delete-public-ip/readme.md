@@ -1,8 +1,8 @@
-# Delete Azure Network Interface
+# Create Azure Network Interface
 
 ## Overview
 
-Deletes a Network Interface on the Azure platform
+Creates a Network Interface on the Azure platform
 
 ## Requirements (on host that executes modules)
 This role requires the following packages to be already installed on Ansible server.
@@ -59,20 +59,32 @@ The following required packages can be installed using the azure-prereqs role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
-|azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|vm_name|vars|testvm1|Name or list of names for the VMs|
+|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+## Role Variables
+|variable|location|example|comments|
+|---|---|---|---|---|
+|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|vm_name|vars|testvm1|Name or list of names for the VMs|
+|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
+|public_ip|vars|<ul><li>false (default)</li><li>true</li><ul>| Sets a public ip address against a network interface|
+
 
 
 ## Examples
 
 ~~~
 ---
-# This test playbook will delete a network interface
-- name: Test playbook for azure-delete-network-interface
+# This test playbook will create a network interface
+- name: Test playbook for azure-create-network-interface
   hosts: localhost
   connection: local
   gather_facts: false
@@ -83,13 +95,14 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    azure_resource_group: Test_Env_1
-    azure_vm_name:
+    resource_group: Test_Env_1
+    virtual_network_name: Test_Env_1-vnet
+    vm_name:
       - centostestvm1
       - centostestvm2
 
   roles:
-    - azure-delete-network-interface
+    - azure-create-network-interface
 ~~~
 
 ## License
