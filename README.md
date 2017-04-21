@@ -11,6 +11,8 @@ This repository contains the following Ansible roles related to managing Azure V
 |azure-prereqs|Used to install the required packages onto RHEL for the azure modules to function|
 |azure-create-network-interface|Creates a Network Interface that can be attached to a Virtual Machine|
 |azure-delete-network-interface|Deletes a Network Interface |
+|azure-create-public-ip-address|Creates a public ip address that can be attached to a network interface|
+|azure-delete-public-ip-address|Deletes a public ip address|
 |azure-create-vm-linux|Creates a Linux VM |
 |azure-create-vm-windows|Creates a Windows VM|
 |azure-delete-vm|Creates a Linux VM|
@@ -95,10 +97,6 @@ These roles have been configured and tested using Ansible Vault. The following v
  - Create, update or delete a storage account.
 - Ansible Cloud Module **azure_rm_publicipaddress**
  - Create, update or delete a storage account.
-
-## Available Roles
-
-
 
 ## Author Information
 Original author - Brad McIntyre.
