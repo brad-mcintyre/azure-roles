@@ -2,7 +2,9 @@
 
 ## Overview
 
-Stop a Virtual Machine on the Azure platform
+Stop a Virtual Machine on the Azure platform. 
+
+**NOTE:** This will only stop a virtual machine not deallocate it. If it needs to be deallocated then use the azure-deallocate-vm role.
 
 ## Requirements (on host that executes modules)
 This role requires the following packages to be already installed on Ansible server.

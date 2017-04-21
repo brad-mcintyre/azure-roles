@@ -1,8 +1,8 @@
-# Stop Azure Virtual Machine
+# Deallocate Azure Virtual Machine
 
 ## Overview
 
-Stop a Virtual Machine on the Azure platform
+Deallocate a Virtual Machine on the Azure platform
 
 ## Requirements (on host that executes modules)
 This role requires the following packages to be already installed on Ansible server.
@@ -87,8 +87,8 @@ The following required packages can be installed using the azure-prereqs role.
 
 ~~~
 ---
-# This test playbook will stop a virtual machine 
-- name: Test playbook for azure-stop-vm
+# This test playbook will deallocate a virtual machine
+- name: Test playbook for azure-deallocate-vm
   hosts: localhost
   connection: local
   gather_facts: false
@@ -99,15 +99,14 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Mocatad_EV15_AS
+    resource_group: Test_Env_1
     vm_name:
-      - wintestvm1
-      - wintestvm2
+      - win2008testvm1
       - centostestvm1
-      - centostestvm2
+    
 
   roles:
-    - azure-stop-vm
+    - azure-deallocate-vm
 
 ~~~
 
