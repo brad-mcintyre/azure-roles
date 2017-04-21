@@ -1,0 +1,21 @@
+---
+# This test playbook will create a public ip
+- name: Test playbook for azure-create-public-ip
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars_files:
+    - /home/ansible/vault.yml
+
+  vars:
+    resource_group: Mocatad_EV15_AS
+    virtual_network_name: Mocatad_EV15_AS-vnet
+    vm_name:
+      - centostestvm1
+      - centostestvm2
+
+  roles:
+    - azure-create-public-ip
