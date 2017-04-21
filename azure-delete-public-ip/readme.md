@@ -30,25 +30,24 @@ The following required packages can be installed using the azure-prereqs role.
 - msrestazure (Azure msrestazure package)
 
 
+
 ## Module used
-- Ansible Cloud Module **azure_rm_virtualnetwork**
- - Create, update or delete a virtual networks.
+- Ansible Cloud Module **azure_rm_publicipaddress**
+ - Create, update and delete a Public IP address.
 
 
-## Available 'azure_rm_virtualnetwork' Module Parameters
+## Available 'azure_rm_publicipaddress' Module Parameters
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
 |ad_user|no| |<ul>|Active Directory username. Use when authenticating with an Active Directory user rather than service principal.|
-|address_prefixes_cidr|no| ||List of IPv4 address ranges where each is formatted using CIDR notation. Required when creating a new virtual network or using purge_address_prefixes.|
+|allocation_method|no|Dynamic|<ul><li>Dynamic</li><li>Static</li><ul>|Control whether the assigned Public IP remains permanently assigned to the object. If not set to 'Static', the IP address my changed anytime an associated virtual machine is power cycled.|
 |append_tags|no|True||Use to control if tags field is canonical or just appends to existing tags. When canonical, any tags not found in the tags parameter will be removed from the object's metadata.|
 |client_id|no|||Azure client ID. Use when authenticating with a Service Principal.|
-|dns_servers|no|||Custom list of DNS servers. Maximum length of two. The first server in the list will be treated as the Primary server. This is an explicit list. Existing DNS servers will be replaced with the specified list. Use the purge_dns_servers option to remove all custom DNS servers and revert to default Azure servers.|
+|domain_name_label|no|||The customizable portion of the FQDN assigned to public IP address. This is an explicit setting. If no value is provided, any existing value will be removed on an existing public IP.|
 |location|no|||Valid Azure location. Defaults to location of the resource group.|
-|name|yes|||name of the virtual network.|
+|name|yes|||Name of the Public IP.|
 |password|no|||Active Directory user password. Use when authenticating with an Active Directory user rather than service principal.|
 |profile|no|||Security profile found in ~/.azure/credentials file.|
-|purge_address_prefixes|no|||Use with state present to remove any existing address_prefixes.|
-|purge_dns_servers|no|||Use with state present to remove existing DNS servers, reverting to default Azure servers. Mutually exclusive with dns_servers.|
 |resource_group|yes|||Name of the resource group containing the virtual machine.|
 |secret|no||| Azure client secret. Use when authenticating with a Service Principal.|
 |state|no|present|<ul><li>absent</li><li>present</li><ul>|Assert the state of the virtual network. Use 'present' to create or update and 'absent' to delete.|
@@ -65,26 +64,15 @@ The following required packages can be installed using the azure-prereqs role.
 |secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |vm_name|vars|testvm1|Name or list of names for the VMs|
 |resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-## Role Variables
-|variable|location|example|comments|
-|---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-|virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
-|public_ip|vars|<ul><li>false (default)</li><li>true</li><ul>| Sets a public ip address against a network interface|
-
+|azure_public_ip_allocation_method|vars|Static|Public IP Allocation Method|
 
 
 ## Examples
 
 ~~~
 ---
-# This test playbook will create a network interface
-- name: Test playbook for azure-create-network-interface
+# This test playbook will delete a public ip
+- name: Test playbook for azure-delete-public-ip
   hosts: localhost
   connection: local
   gather_facts: false
@@ -95,14 +83,14 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Test_Env_1
-    virtual_network_name: Test_Env_1-vnet
-    vm_name:
+    azure_resource_group: Test_Env_1
+    azure_public_ip_allocation_method: Dynamic
+    azure_vm_name:
+      - win2008testvm1
       - centostestvm1
-      - centostestvm2
 
   roles:
-    - azure-create-network-interface
+    - azure-delete-public-ip
 ~~~
 
 ## License
