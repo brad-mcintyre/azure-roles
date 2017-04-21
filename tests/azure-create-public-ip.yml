@@ -12,6 +12,7 @@
 
   vars:
     resource_group: Mocatad_EV15_AS
+    allocation_method: Dynamic
     vm_name:
       - centostestvm1
       - centostestvm2
