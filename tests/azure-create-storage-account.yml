@@ -11,12 +11,12 @@
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Mocatad_EV15_AS
-    storage_account_type: Standard_LRS
-    storage_account_kind: Storage
-    vm_name:
+    azure_resource_group: Mocatad_EV15_AS
+    azure_storage_account_type: Standard_LRS
+    azure_storage_account_kind: Storage
+    azure_vm_name:
+      - win2008testvm1
       - centostestvm1
-      - centostestvm2
 
   roles:
     - azure-create-storage-account

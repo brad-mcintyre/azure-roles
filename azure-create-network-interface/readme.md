@@ -59,24 +59,12 @@ The following required packages can be installed using the azure-prereqs role.
 ## Role Variables
 |variable|location|example|comments|
 |---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-## Role Variables
-|variable|location|example|comments|
-|---|---|---|---|---|
-|subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
-|tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
-|client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
-|secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|vm_name|vars|testvm1|Name or list of names for the VMs|
-|resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-|virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
-|public_ip|vars|<ul><li>false (default)</li><li>true</li><ul>| Sets a public ip address against a network interface|
-
+|azure_subscription_id|encrypted vault file|aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa|Your Azure subscription Id.|
+|azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
+|azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
+|azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
+|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 
 
 ## Examples
@@ -95,9 +83,9 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Test_Env_1
-    virtual_network_name: Test_Env_1-vnet
-    vm_name:
+    azure_resource_group: Test_Env_1
+    azure_virtual_network_name: Test_Env_1-vnet
+    azure_vm_name:
       - centostestvm1
       - centostestvm2
 

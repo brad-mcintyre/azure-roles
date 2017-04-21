@@ -11,17 +11,17 @@
     - /home/ansible/vault.yml
 
   vars:
-    vm_name:
+    azure_vm_name:
       - centostestvm1
-      #- centostestvm2
-    resource_group: Mocatad_EV15_AS
-    virtual_network_name: Mocatad_EV15_AS-vnet
-    offer: CentOS
-    publisher: OpenLogic
-    sku: '7.1'
-    version: latest
-    vm_size: Standard_D1
-    os_type: Linux
+      
+    azure_resource_group: Mocatad_EV15_AS
+    azure_virtual_network_name: Mocatad_EV15_AS-vnet
+    azure_offer: CentOS
+    azure_publisher: OpenLogic
+    azure_sku: '7.1'
+    azure_version: latest
+    azure_vm_size: Standard_D1
+    azure_os_type: Linux
 
   roles:
     - azure-create-storage-account

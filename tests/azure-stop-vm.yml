@@ -11,12 +11,10 @@
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Mocatad_EV15_AS
-    vm_name:
+    azure_resource_group: Mocatad_EV15_AS
+    azure_vm_name:
       - win2008testvm1
-      #- win2008testvm2
       - centostestvm1
-      #- centostestvm2
 
   roles:
     - azure-stop-vm

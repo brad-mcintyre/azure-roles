@@ -12,13 +12,11 @@
     - /home/ansible/vault.yml
 
   vars:
-    resource_group: Mocatad_EV15_AS
-    vm_name:
-      - centostestvm1
-      - centostestvm2
+    azure_resource_group: Mocatad_EV15_AS
+    azure_vm_name:
       - win2008testvm1
-      - win2008testvm2
-    remove_on_absent:
+      - centostestvm1
+    azure_remove_on_absent:
       - network_interfaces
       - virtual_storage
       - public_ips

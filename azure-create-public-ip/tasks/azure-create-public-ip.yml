@@ -1,12 +1,12 @@
 ---
 - name: Create Public IP
   azure_rm_publicipaddress:
-    client_id: "{{ client_id }}"
-    secret: "{{ secret }}"
-    subscription_id: "{{ subscription_id }}"
-    tenant: "{{ tenant }}"
-    resource_group: "{{ resource_group }}"
+    client_id: "{{ azure_client_id }}"
+    secret: "{{ azure_secret }}"
+    subscription_id: "{{ azure_subscription_id }}"
+    tenant: "{{ azure_tenant }}"
+    resource_group: "{{ azure_resource_group }}"
     name: "{{ item }}01"
-    allocation_method: "{{ allocation_method }}"
+    allocation_method: "{{ azure_public_ip_allocation_method }}"
     state: present
-  with_items: "{{ vm_name }}"
+  with_items: "{{ azure_vm_name }}"

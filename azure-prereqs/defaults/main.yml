@@ -1,5 +1,5 @@
 ---
   # defaults file for azure-prereqs
-  prereq_yum_packages: {}
+  azure_prereq_yum_packages: {}
   azure_pip_packages: {}
   azure_npm_packages: {}
