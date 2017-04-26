@@ -12,11 +12,11 @@
 
   vars:
     azure_vm_name:
-      - win2008testvm1
-        azure_storage_account_name: win2008testvm101
-        azure_nic_name: win2008testvm1-nic1
-        azure_security_group_name: win2008testvm1-nic101
-      
+      - win2008testvm1:
+          azure_storage_account_name: win2008testvm101
+          azure_nic_name: win2008testvm1-nic1
+          azure_security_group_name: win2008testvm1-nic101
+
 
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet
