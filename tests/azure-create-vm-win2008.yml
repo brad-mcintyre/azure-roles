@@ -13,7 +13,8 @@
   vars:
     azure_vm_name:
       - win2008testvm1
-      
+      - win2008testvm2
+
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet
     azure_publisher: MicrosoftWindowsServer
