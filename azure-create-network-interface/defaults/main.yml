@@ -1,3 +1,4 @@
 ---
   # defaults file for azure-create-network-interface
 azure_public_ip: false
+azure_nic_name: "{{ azure_vm_name }}-nic1"

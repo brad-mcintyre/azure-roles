@@ -1,2 +1,3 @@
 ---
   # defaults file for azure-delete-network-interface
+azure_nic_name: "{{ azure_vm_name }}-nic1"

@@ -6,8 +6,8 @@
     subscription_id: "{{ azure_subscription_id }}"
     tenant: "{{ azure_tenant }}"
     resource_group: "{{ azure_resource_group }}"
-    name: "{{ item }}-nic1"
+    name: "{{ item }}"
     virtual_network_name: "{{ azure_virtual_network_name }}"
     subnet_name: default
     public_ip: "{{ azure_public_ip }}"
-  with_items: "{{ azure_vm_name }}"
+  with_items: "{{ azure_nic_name }}"
