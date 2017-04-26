@@ -14,6 +14,7 @@
     azure_vm_name:
       - win2008testvm1
       - win2008testvm2
+    azure_storage_account_name: "{{ azure_vm_name }}01"
 
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet

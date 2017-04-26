@@ -3,4 +3,3 @@
 
 azure_storage_account_type: Standard_LRS
 azure_storage_account_kind: Storage
-azure_storage_account_name: "{{ azure_vm_name }}01"
