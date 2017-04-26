@@ -1,4 +1,2 @@
 ---
   # defaults file for azure-create-vm
-azure_network_interface_name: "{{ azure_vm_name }}-nic1"
-azure_storage_account_name: "{{ azure_vm_name }}01"
