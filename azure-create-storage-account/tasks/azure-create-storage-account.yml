@@ -7,7 +7,7 @@
     tenant: "{{ azure_tenant }}"
     resource_group: "{{ azure_resource_group }}"
     name: "{{ item }}"
-    account_type: "{{ azure_vm_name.azure_storage_account_type }}"
+    account_type: "{{ azure_storage_account_type }}"
     kind: "{{ azure_storage_account_kind }}"
     state: present
-  with_items: "{{ azure_vm_name }}"
+  with_items: "{{ azure_vm_name.azure_storage_account_name }}"
