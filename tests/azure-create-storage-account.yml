@@ -14,7 +14,8 @@
     azure_resource_group: Mocatad_EV15_AS
     azure_storage_account_type: Standard_LRS
     azure_storage_account_kind: Storage
-    azure_storage_account_name: win2008testvm101
-        
+    azure_storage_account_name:
+      - win2008testvm101
+
   roles:
     - azure-create-storage-account
