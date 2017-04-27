@@ -3,9 +3,8 @@
   - name: Check required guest variables defined
     fail: msg="Required variables for vm's not defined"
     when: (item.name is undefined or item.name is none or item.name | trim == "") or
-          (item.azure_storage_account_name is undefined or item.azure_storage_account_name is none or item.azure_storage_account_name | trim == "")
+          (item.azure_storage_account_name is undefined or item.azure_storage_account_name is none or item.azure_storage_account_name | trim == "") or
           (item.azure_network_interface_name is undefined or item.azure_network_interface_name is none or item.azure_network_interface_name | trim == "")
-
     with_items: "{{ azure_vm_name }}"
 
   - name: Create VM
