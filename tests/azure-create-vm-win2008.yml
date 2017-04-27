@@ -32,6 +32,6 @@
     azure_os_type: Windows
 
   roles:
-    #- azure-create-storage-account
-    #- azure-create-network-interface
+    - azure-create-storage-account
+    - azure-create-network-interface
     - azure-create-vm
