@@ -13,9 +13,9 @@
   vars:
     azure_vm_name:
       win2008testvm1:
-        azure_storage_account_name: win2008testvm101
-        azure_security_group_name: win2008testvm1-nic101
-        azure_network_interface_name: win2008testvm1-nic1
+        - azure_storage_account_name: win2008testvm101
+        - azure_security_group_name: win2008testvm1-nic101
+        - azure_network_interface_name: win2008testvm1-nic1
 
 
     azure_resource_group: Mocatad_EV15_AS
