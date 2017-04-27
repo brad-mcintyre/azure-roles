@@ -1,5 +1,6 @@
 ---
 # This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
+  
 - name: Test playbook for azure-create-vm
   hosts: localhost
   connection: local
