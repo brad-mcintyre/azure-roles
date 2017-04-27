@@ -12,9 +12,10 @@
 
   vars:
     azure_resource_group: Mocatad_EV15_AS
-    azure_security_group_name: 
-      - win2008testvm1-nic101
-      - centostestvm1-nic101
+    azure_vm_name:
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm1-nic101
+
 
   roles:
     - azure-create-storage-account

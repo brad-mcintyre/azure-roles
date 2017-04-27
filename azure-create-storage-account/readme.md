@@ -67,6 +67,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
 |azure_storage_account_type|vars|<ul><li>Standard_GRS</li><li>Standard_LRS (default)</li><li>Standard_RAGRS</li><li>Standard_ZRS</li><li>Premium_LRS</li><ul>| Type of Storage|
 |azure_storage_account_kind|vars|<ul><li>Storage (default)</li><li>StorageBlob</li><ul>|Kind of Storage|
+|azure_storage_account_name|vars|testvm101|Name of the Storage Account|
 
 
 ## Examples

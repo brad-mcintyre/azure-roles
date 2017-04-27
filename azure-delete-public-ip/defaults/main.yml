@@ -1,4 +1,3 @@
 ---
   # defaults file for azure-create-public-ip
 azure_public_ip_allocation_method: Dynamic
-azure_public_ip_name: "{{ azure_vm_name }}01"

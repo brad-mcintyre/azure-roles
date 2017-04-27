@@ -13,8 +13,8 @@
   vars:
     azure_resource_group: Mocatad_EV15_AS
     azure_vm_name:
-      - win2008testvm1
-      - centostestvm1
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm101
 
   roles:
     - azure-delete-storage-account

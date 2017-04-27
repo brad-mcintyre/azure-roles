@@ -65,6 +65,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |azure_vm_name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
+|azure_network_interface_name|vars|Testvm1_nic1|Name of the netword interface to delete|
 
 
 ## Examples

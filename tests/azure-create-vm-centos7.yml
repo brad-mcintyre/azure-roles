@@ -12,8 +12,15 @@
 
   vars:
     azure_vm_name:
-      - centostestvm1
-      
+      - name: centostestvm1
+        azure_storage_account_name: centostestvm101
+        azure_security_group_name: centostestvm1-nic101
+        azure_network_interface_name: centostestvm1-nic1
+      - name: centostestvm2
+        azure_storage_account_name: centostestvm201
+        azure_security_group_name: centostestvm2-nic101
+        azure_network_interface_name: centostestvm2-nic1
+
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet
     azure_offer: CentOS

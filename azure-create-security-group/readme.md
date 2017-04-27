@@ -54,6 +54,7 @@ The following required packages can be installed using the azure-prereqs role.
 |tags|no|||Dictionary of string:string pairs to assign as metadata to the object. Metadata tags on the object will be updated with any provided values. To remove tags set append_tags option to false. |
 |tenant|no|||Azure tenant ID. Use when authenticating with a Service Principal.|
 
+
 ###Dictionary object rules###
 |parameter|required|default|choices|comments|
 |---|---|---|---|---|
@@ -79,7 +80,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |azure_vm_name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-
+|azure_security_group_name|vars|testvm1-nic101|Name of the Security Group|
 
 ## Examples
 
