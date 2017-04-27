@@ -1,0 +1,15 @@
+---
+- name: Deploy ARM Template
+  azure_rm_deployment:
+    client_id: "{{ azure_client_id }}"
+    secret: "{{ azure_secret }}"
+    subscription_id: "{{ azure_subscription_id }}"
+    tenant: "{{ azure_tenant }}"
+    location: "{{ azure_location }}"
+    resource_group_name: "{{ azure_resource_group }}"
+    template_link: "{{ azure_template_link }}"
+    paramemter_link: "{{ azure_perameter_link }}"
+    wait_for_deployment_completion: "{{ azure_wait_for_deployment_completion }}"
+    wait_for_deployment_polling_period: "{{ azure_wait_for_deployment_polling_period }}"
+    state: present
+  with_items: "{{ azure_vm_name }}"
