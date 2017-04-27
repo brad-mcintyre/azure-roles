@@ -18,7 +18,11 @@
         azure_security_group_name: win2008testvm1-nic101
         azure_network_interface_name: win2008testvm1-nic1
         azure_storage_account_name: win2008testvm101
-        
+      - name: win2008testvm2
+        azure_security_group_name: win2008testvm2-nic101
+        azure_network_interface_name: win2008testvm2-nic1
+        azure_storage_account_name: win2008testvm102
+
     azure_remove_on_absent:
       - network_interfaces
       - virtual_storage
