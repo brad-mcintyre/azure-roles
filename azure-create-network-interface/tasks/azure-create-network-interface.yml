@@ -7,7 +7,7 @@
           (azure_subscription_id is undefined or azure_subscription_id is none or azure_subscription_id | trim == "") or
           (azure_tenant is undefined or azure_tenant is none or azure_tenant | trim == "") or
           (azure_resource_group is undefined or azure_resource_group is none or azure_resource_group | trim == "") or
-    with_items:
+    with_items: all
 
   - name: Check role required variables are defined
     fail: msg="Required variables for vm's not defined"
