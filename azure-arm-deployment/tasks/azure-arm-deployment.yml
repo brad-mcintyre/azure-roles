@@ -18,7 +18,7 @@
       windowsOSVersion: "{{ azure_windows_os_version }}"
       nicname: "{{ azure_network_interface_name }}"
       virtualNetworkName: "{{ azure_virtual_network_name }}"
-      publicIPAddressName: "{{ azure_public_ip_name  }}"
+      #publicIPAddressName: "{{ azure_public_ip_name  }}"
 
     wait_for_deployment_completion: "{{ azure_wait_for_deployment_completion }}"
     wait_for_deployment_polling_period: "{{ azure_wait_for_deployment_polling_period }}"
