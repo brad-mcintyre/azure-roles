@@ -7,7 +7,7 @@
     tenant: "{{ azure_tenant }}"
     resource_group_name: "{{ azure_resource_group }}"
     template_link: "{{ azure_template_link }}"
-    paramemters:
+    parameters:
       newStorageAccountName: "{{ azure_storage_account_name }}"
       adminUsername: "{{ azure_admin_username }}"
       adminPassword: "{{ azure_admin_password}}"
@@ -18,7 +18,7 @@
       nicname: "{{ azure_network_interface_name }}"
       virtualNetworkName: "{{ azure_virtual_network_name }}"
       publicIPAddressName: "{{ azure_public_ip_name  }}"
-            
+
     wait_for_deployment_completion: "{{ azure_wait_for_deployment_completion }}"
     wait_for_deployment_polling_period: "{{ azure_wait_for_deployment_polling_period }}"
     state: present
