@@ -9,8 +9,8 @@
     location: "{{ azure_location }}"
     template_link: "{{ azure_template_link }}"
     parameters:
-      newStorageAccountName:
-        value: "{{ azure_storage_account_name }}"
+      #newStorageAccountName:
+        #value: "{{ azure_storage_account_name }}"
       adminUsername:
         value: "{{ azure_admin_username }}"
       adminPassword:
@@ -19,8 +19,8 @@
         value: "{{ azure_vm_name }}"
       vmName:
         value: "{{ azure_vm_name }}"
-      vmSize:
-        value: "{{ azure_vm_size }}"
+      #vmSize:
+        #value: "{{ azure_vm_size }}"
       windowsOSVersion:
         value: "{{ azure_windows_os_version }}"
       nicname:
