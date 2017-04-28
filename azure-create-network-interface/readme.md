@@ -65,6 +65,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |azure_vm_name|vars|testvm1|Name or list of names for the VMs|
 |azure_network_interface_name|vars|testvm1-nic1|Name of the Network Interface.|
+|azure_virtual_network_name|vars|test_env_1-vnet|Name of the Virtual network|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 |azure_public_ip|vars|false|Creates a public IP Address, default is false.|
 
@@ -85,11 +86,11 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    azure_resource_group: Test_Env_1
-    azure_virtual_network_name: Test_Env_1-vnet
+    azure_resource_group: Mocatad_EV15_AS
+    azure_virtual_network_name: Mocatad_EV15_AS-vnet
     azure_vm_name:
-      - centostestvm1
-      - centostestvm2
+      - name: win2008testvm1
+        azure_network_interface_name: win2008testvm1-nic1
 
   roles:
     - azure-create-network-interface
