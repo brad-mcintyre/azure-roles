@@ -11,7 +11,7 @@
     parameters:
       newStorageAccountName: "{{ azure_storage_account_name }}"
       adminUsername: "{{ azure_admin_username }}"
-      adminPassword: "{{ azure_admin_password}}"
+      adminPassword: Password1234 #"{{ azure_admin_password}}"
       dnsLabelPrefix: "{{ azure_vm_name }}"
       vmName: "{{ azure_vm_name }}"
       vmSize: "{{ azure_vm_size }}"
