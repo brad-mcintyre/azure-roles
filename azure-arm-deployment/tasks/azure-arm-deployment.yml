@@ -7,7 +7,7 @@
     tenant: "{{ azure_tenant }}"
     resource_group_name: "{{ azure_resource_group }}"
     location: "{{ azure_location }}"
-    #template_link: "{{ azure_template_link }}"
+    template_link: "{{ azure_template_link }}"
     parameters:
       newStorageAccountName:
         value: "{{ azure_storage_account_name }}"
