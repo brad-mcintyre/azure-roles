@@ -64,7 +64,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |azure_vm_name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-
+|azure_storage_account_name|vars|testvm101|Name of the Storage Account|
 
 
 ## Examples
@@ -85,8 +85,8 @@ The following required packages can be installed using the azure-prereqs role.
   vars:
     azure_resource_group: Test_Env_1
     azure_vm_name:
-      - centostestvm1
-      - centostestvm2
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm101
 
   roles:
     - azure-delete-storage-account

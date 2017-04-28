@@ -90,8 +90,8 @@ The following required packages can be installed using the azure-prereqs role.
     azure_storage_account_type: Standard_LRS
     azure_storage_account_kind: Storage
     azure_vm_name:
-      - centostestvm1
-      - centostestvm2
+      - name: win2008testvm1
+        azure_storage_account_name: win2008testvm101
 
   roles:
     - azure-create-storage-account

@@ -90,6 +90,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_version|vars|latest|Version of the virtual machine.|
 |azure_network_interface_names|vars|testvm1-nic1|List of existing network interface names to add to the VM.|
 |azure_storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
+|azure_security_group_name|vars|testvm2-nic101|Name of existing security group|
 |azure_os_type|vars|Linux|Base type of operating system.|
 |azure_vm_size|vars|Standard_D1| A valid Azure VM size value.|
 
@@ -108,10 +109,17 @@ The following required packages can be installed using the azure-prereqs role.
   vars_files:
     - /home/ansible/vault.yml
 
-  vars:
+    vars:
     azure_vm_name:
-      - centostestvm1
-      - centostestvm2
+      - name: centostestvm1
+        azure_storage_account_name: centostestvm101
+        azure_security_group_name: centostestvm1-nic101
+        azure_network_interface_name: centostestvm1-nic1
+      - name: centostestvm2
+        azure_storage_account_name: centostestvm201
+        azure_security_group_name: centostestvm2-nic101
+        azure_network_interface_name: centostestvm2-nic1
+
     azure_resource_group: Test_Env_1
     azure_virtual_network_name: Test_Env_1-vnet
     azure_offer: CentOS
@@ -139,10 +147,17 @@ The following required packages can be installed using the azure-prereqs role.
   vars_files:
     - /home/ansible/vault.yml
 
-  vars:
+    vars:
     azure_vm_name:
-      - win2008testvm1
-      - win2008testvm2
+      - name: win2008testvm1
+        azure_storage_account_name: win2008testvm101
+        azure_security_group_name: win2008testvm1-nic101
+        azure_network_interface_name: win2008testvm1-nic1
+      - name: win2008testvm2
+        azure_storage_account_name: win2008testvm201
+        azure_security_group_name: win2008testvm2-nic101
+        azure_network_interface_name: win2008testvm2-nic1
+
     azure_resource_group: Test_Env_1
     azure_virtual_network_name: Test_Env_1-vnet
     azure_publisher: MicrosoftWindowsServer

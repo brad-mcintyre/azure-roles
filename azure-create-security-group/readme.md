@@ -100,8 +100,8 @@ The following required packages can be installed using the azure-prereqs role.
   vars:
     azure_resource_group: Test_Env_1
     azure_vm_name:
-      - centostestvm1
-      - centostestvm2
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm1-nic1012
 
   roles:
     - azure-create-storage-account

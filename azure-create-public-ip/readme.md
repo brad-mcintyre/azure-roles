@@ -83,9 +83,9 @@ The following required packages can be installed using the azure-prereqs role.
   vars:
     azure_resource_group: Test_Env_1
     azure_public_ip_allocation_method: Dynamic
-    azure_vm_name:
-      - win2008testvm1
-      - centostestvm1
+    azure_public_ip_name: 
+      - win2008testvm101
+      - centostestvm101
 
   roles:
     - azure-create-public-ip

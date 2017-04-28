@@ -82,7 +82,9 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_remove_on_absent|vars|<ul><li>network_interfaces</li><li>virtual_storage</li><li>public_ips</li><ul>|List of additional VM resources to delete. Default is no additional resources |
 |azure_vm_name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
-
+|azure_network_interface_names|vars|testvm1-nic1|List of existing network interface names to add to the VM.|
+|azure_storage_account_name|vars|testvm101|Name of an existing storage account that supports creation of VHD blobs.|
+|azure_security_group_name|vars|testvm2-nic101|Name of existing security group|
 
 ## Examples
 
@@ -102,11 +104,15 @@ The following required packages can be installed using the azure-prereqs role.
 
   vars:
     azure_resource_group: Test_Env_1
-    azure_vm_name:
-      - centostestvm1
-      - centostestvm2
-      - win2008testvm1
-      - win2008testvm2
+      azure_vm_name:
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm1-nic101
+        azure_network_interface_name: win2008testvm1-nic1
+        azure_storage_account_name: win2008testvm101
+      - name: win2008testvm2
+        azure_security_group_name: win2008testvm2-nic101
+        azure_network_interface_name: win2008testvm2-nic1
+        azure_storage_account_name: win2008testvm201
 
   roles:
     - azure-delete-vm
