@@ -9,16 +9,26 @@
     location: "{{ azure_location }}"
     template_link: "{{ azure_template_link }}"
     parameters:
-      newStorageAccountName: "{{ azure_storage_account_name }}"
-      adminUsername: "{{ azure_admin_username }}"
-      #adminPassword: Password1234 #"{{ azure_admin_password}}"
-      dnsLabelPrefix: "{{ azure_vm_name }}"
-      vmName: "{{ azure_vm_name }}"
-      vmSize: "{{ azure_vm_size }}"
-      windowsOSVersion: "{{ azure_windows_os_version }}"
-      nicname: "{{ azure_network_interface_name }}"
-      virtualNetworkName: "{{ azure_virtual_network_name }}"
-      #publicIPAddressName: "{{ azure_public_ip_name  }}"
+      newStorageAccountName:
+        value: "{{ azure_storage_account_name }}"
+      adminUsername:
+        value: "{{ azure_admin_username }}"
+      adminPassword:
+        value: "{{ azure_admin_password}}"
+      dnsLabelPrefix:
+        value: "{{ azure_vm_name }}"
+      vmName:
+        value: "{{ azure_vm_name }}"
+      vmSize:
+        value: "{{ azure_vm_size }}"
+      windowsOSVersion:
+        value: "{{ azure_windows_os_version }}"
+      nicname:
+        value: "{{ azure_network_interface_name }}"
+      virtualNetworkName:
+        value: "{{ azure_virtual_network_name }}"
+      publicIPAddressName:
+        value: "{{ azure_public_ip_name  }}"
 
     wait_for_deployment_completion: "{{ azure_wait_for_deployment_completion }}"
     wait_for_deployment_polling_period: "{{ azure_wait_for_deployment_polling_period }}"
