@@ -19,6 +19,7 @@
     azure_windows_os_version: 2012-R2-Datacenter
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet
+    azure_public_ip_name: win2012testvm201
     azure_vm_size: Standard_D1
     azure_template_link: https://github.com/Azure/azure-quickstart-templates/blob/4b529b00eec1a48748e2f1ea0f305c0f07c87253/201-vm-winrm-windows/azuredeploy.json
 
