@@ -14,7 +14,6 @@
     azure_resource_group: Mocatad_EV15_AS
     azure_public_ip_allocation_method: Dynamic
     azure_public_ip_name: 
-      - win2008testvm101
       - centostestvm101
 
   roles:
