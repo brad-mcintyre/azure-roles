@@ -13,6 +13,7 @@
   vars:
     azure_resource_group: Mocatad_EV15_AS
     azure_virtual_network_name: Mocatad_EV15_AS-vnet
+    azure_public_ip: true
     azure_vm_name:
       - name: win2008testvm3
         azure_network_interface_name: win2008testvm3-nic1

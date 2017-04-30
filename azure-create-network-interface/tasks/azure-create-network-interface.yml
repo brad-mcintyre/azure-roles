@@ -10,4 +10,5 @@
     virtual_network_name: "{{ azure_virtual_network_name }}"
     subnet_name: default
     public_ip: "{{ azure_public_ip }}"
+    public_ip_address_name: "{{ item.name }}"
   with_items: "{{ azure_vm_name }}"
