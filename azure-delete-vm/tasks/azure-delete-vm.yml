@@ -10,4 +10,4 @@
     name: "{{ item.name }}"
     state: absent
     remove_on_absent: "{{ azure_remove_on_absent }}"
-  with_items: "{{ azure_vm_name }}"
+  with_items: "{{ azure_name }}"

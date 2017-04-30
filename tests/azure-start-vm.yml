@@ -12,7 +12,7 @@
 
   vars:
     azure_resource_group: Mocatad_EV15_AS
-    azure_vm_name:
+    azure_name:
       - win2008testvm1
       - centostestvm1
 

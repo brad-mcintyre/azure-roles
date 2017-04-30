@@ -18,4 +18,4 @@
       version: "{{ azure_version }}"
     vm_size: "{{ azure_vm_size }}"
     os_type: "{{ azure_os_type }}"
-  with_items: "{{ azure_vm_name }}"
+  with_items: "{{ azure_name }}"

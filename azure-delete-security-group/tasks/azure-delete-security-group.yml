@@ -8,4 +8,4 @@
     resource_group: "{{ azure_resource_group }}"
     name: "{{ item.azure_security_group_name  }}"
     state: absent
-  with_items: "{{ azure_vm_name }}"
+  with_items: "{{ azure_name }}"

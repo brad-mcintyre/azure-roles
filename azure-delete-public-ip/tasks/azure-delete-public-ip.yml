@@ -8,4 +8,4 @@
     resource_group: "{{ azure_resource_group }}"
     name: "{{ item }}"
     state: absent
-  with_items: "{{ azure_public_ip_name }}"
+  with_items: "{{ azure_name }}"
