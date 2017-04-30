@@ -31,8 +31,11 @@
     azure_version: latest
     azure_vm_size: Standard_D1
     azure_os_type: Windows
+    azure_public_ip: true
+    azure_public_ip_allocation_method: Dynamic
 
   roles:
     - azure-create-storage-account
+    - azure-create-public-ip
     - azure-create-network-interface
     - azure-create-vm
