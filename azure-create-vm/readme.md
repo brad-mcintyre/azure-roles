@@ -82,7 +82,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
 |azure_admin_password|encrypted vault file| password123|Password for the admin username. |
 |azure_admin_username|encrypted vault file|testadmin|Admin username used to access the host after it is created. |
-|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 |azure_publisher|vars|OpenLogic|Publisher of the Azure image|
 |azure_offer|vars|CentOS|Offer of the Azure image|
@@ -109,8 +109,8 @@ The following required packages can be installed using the azure-prereqs role.
   vars_files:
     - /home/ansible/vault.yml
 
-    vars:
-    azure_vm_name:
+  vars:
+    azure_name:
       - name: centostestvm1
         azure_storage_account_name: centostestvm101
         azure_security_group_name: centostestvm1-nic101
@@ -120,23 +120,26 @@ The following required packages can be installed using the azure-prereqs role.
         azure_security_group_name: centostestvm2-nic101
         azure_network_interface_name: centostestvm2-nic1
 
-    azure_resource_group: Test_Env_1
-    azure_virtual_network_name: Test_Env_1-vnet
+    azure_resource_group: Mocatad_EV15_AS
+    azure_virtual_network_name: Mocatad_EV15_AS-vnet
     azure_offer: CentOS
     azure_publisher: OpenLogic
     azure_sku: '7.1'
     azure_version: latest
     azure_vm_size: Standard_D1
     azure_os_type: Linux
+    azure_public_ip_allocation_method: Dynamic
+
 
   roles:
     - azure-create-storage-account
+    - azure-create-public-ip
     - azure-create-network-interface
     - azure-create-vm
 
-    ---
-
+---
 # This test playbook will create a Windows Server 2008 R2 Sp1 Virtual Machine
+
 - name: Test playbook for azure-create-vm
   hosts: localhost
   connection: local
@@ -147,8 +150,8 @@ The following required packages can be installed using the azure-prereqs role.
   vars_files:
     - /home/ansible/vault.yml
 
-    vars:
-    azure_vm_name:
+  vars:
+    azure_name:
       - name: win2008testvm1
         azure_storage_account_name: win2008testvm101
         azure_security_group_name: win2008testvm1-nic101
@@ -158,17 +161,20 @@ The following required packages can be installed using the azure-prereqs role.
         azure_security_group_name: win2008testvm2-nic101
         azure_network_interface_name: win2008testvm2-nic1
 
-    azure_resource_group: Test_Env_1
-    azure_virtual_network_name: Test_Env_1-vnet
+
+    azure_resource_group: Mocatad_EV15_AS
+    azure_virtual_network_name: Mocatad_EV15_AS-vnet
     azure_publisher: MicrosoftWindowsServer
     azure_offer: WindowsServer
     azure_sku: 2008-R2-SP1
     azure_version: latest
     azure_vm_size: Standard_D1
     azure_os_type: Windows
+    azure_public_ip_allocation_method: Dynamic
 
   roles:
     - azure-create-storage-account
+    - azure-create-public-ip
     - azure-create-network-interface
     - azure-create-vm
 

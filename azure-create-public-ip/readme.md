@@ -61,7 +61,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
 |azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|azure_name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 |azure_public_ip_allocation_method|vars|Static|Public IP Allocation Method|
 |domain_name_label|vars|testvm1|The customizable portion of the FQDN assigned to public IP address. |
@@ -82,11 +82,10 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    azure_resource_group: Test_Env_1
+    azure_resource_group: Mocatad_EV15_AS
     azure_public_ip_allocation_method: Dynamic
-    azure_public_ip_name: 
-      - win2008testvm101
-      - centostestvm101
+    azure_name:
+      - name: centostestvm101
 
   roles:
     - azure-create-public-ip

@@ -80,7 +80,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
 |azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 
 ## Examples
@@ -99,15 +99,14 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    azure_resource_group: Test_Env_1
-    azure_vm_name:
-      - win2008testvm1
-      - centostestvm1
-    
+    azure_resource_group: Mocatad_EV15_AS
+    azure_name:
+      - name: centostestvm1
+      - name: centostestvm2
+
 
   roles:
     - azure-deallocate-vm
-
 ~~~
 
 ## License

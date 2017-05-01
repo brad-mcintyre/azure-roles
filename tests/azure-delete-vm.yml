@@ -14,14 +14,14 @@
   vars:
     azure_resource_group: Mocatad_EV15_AS
     azure_name:
-      - name: centostestvm1
-        azure_security_group_name: centostestvm1-nic101
-        azure_network_interface_name: centostestvm1-nic1
-        azure_storage_account_name: centostestvm101
-      - name: centostestvm2
-        azure_security_group_name: centostestvm2-nic101
-        azure_network_interface_name: centostestvm2-nic1
-        azure_storage_account_name: centostestvm201
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm1-nic101
+        azure_network_interface_name: win2008testvm1-nic1
+        azure_storage_account_name: cwin2008testvm101
+      - name: win2008testvm2
+        azure_security_group_name: win2008testvm2-nic101
+        azure_network_interface_name: win2008testvm2-nic1
+        azure_storage_account_name: win2008testvm201
 
     azure_remove_on_absent:
       - network_interfaces

@@ -62,7 +62,7 @@ The following required packages can be installed using the azure-prereqs role.
 |azure_tenant|encrypted vault file|bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb|Azure tenant ID. Use when authenticating with a Service Principal.|
 |azure_client_id|encrypted vault file|cccccccc-cccc-cccc-cccc-cccccccccccc|Azure client ID. Use when authenticating with a Service Principal.|
 |azure_secret|encrypted vault file|dddddddddddddddddddddddddddddddddddddddddddd| Azure client secret. Use when authenticating with a Service Principal.|
-|azure_vm_name|vars|testvm1|Name or list of names for the VMs|
+|name|vars|testvm1|Name or list of names for the VMs|
 |azure_resource_group|vars|Test_Env_1|Name of the resource group containing the virtual machine.|
 |azure_virtual_network_name|vars|Test_Env_1-vnet|Name of the Virtual Network to build the VM in|
 |azure_storage_account_type|vars|<ul><li>Standard_GRS</li><li>Standard_LRS (default)</li><li>Standard_RAGRS</li><li>Standard_ZRS</li><li>Premium_LRS</li><ul>| Type of Storage|
@@ -86,10 +86,10 @@ The following required packages can be installed using the azure-prereqs role.
     - /home/ansible/vault.yml
 
   vars:
-    azure_resource_group: Test_Env_1
+    azure_resource_group: Mocatad_EV15_AS
     azure_storage_account_type: Standard_LRS
     azure_storage_account_kind: Storage
-    azure_vm_name:
+    azure_name:
       - name: win2008testvm1
         azure_storage_account_name: win2008testvm101
 
