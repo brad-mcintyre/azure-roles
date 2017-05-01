@@ -13,8 +13,8 @@
   vars:
     azure_resource_group: Mocatad_EV15_AS
     azure_public_ip_allocation_method: Dynamic
-    azure_name: 
-      - centostestvm101
+    azure_name:
+      - name: centostestvm101
 
   roles:
     - azure-create-public-ip
