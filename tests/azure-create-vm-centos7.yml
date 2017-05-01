@@ -29,7 +29,6 @@
     azure_version: latest
     azure_vm_size: Standard_D1
     azure_os_type: Linux
-    azure_public_ip: true
     azure_public_ip_allocation_method: Dynamic
 
 
