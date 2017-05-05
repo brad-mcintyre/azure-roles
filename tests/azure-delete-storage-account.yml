@@ -1,0 +1,20 @@
+---
+  # This test playbook will delete a storage account
+- name: Test playbook for azure-create-storage-account
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars_files:
+    - /home/ansible/vault.yml
+
+  vars:
+    azure_resource_group: Mocatad_EV15_AS
+    azure_name:
+      - name: win2008testvm1
+        azure_security_group_name: win2008testvm101
+
+  roles:
+    - azure-delete-storage-account

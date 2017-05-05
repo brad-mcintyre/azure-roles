@@ -1,0 +1,34 @@
+---
+# tasks file for azure-prereqs
+
+- name: Ensure required yum dependancy packages are installed
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ azure_prereq_yum_packages }}"
+  register: yum_result
+  #failed_when: "'FAILED' in command_result.stderr"
+- debug:
+    var: yum_result
+
+
+- name: Ensure required Azure pip packages are installed
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ azure_pip_packages }}"
+  register: pip_result
+  #failed_when: "'FAILED' in command_result.stderr"
+- debug:
+    var: pip_result
+
+- name: Ensure required Azure npm packages are installed
+  npm:
+    name: "{{ item }}"
+    state: present
+    global: yes
+  with_items: "{{ azure_npm_packages }}"
+  register: npm_result
+    #failed_when: "'FAILED' in command_result.stderr"
+- debug:
+      var: npm_result

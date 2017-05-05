@@ -1,0 +1,29 @@
+---
+# This test playbook will deploy an ARM template
+
+- name: Test playbook for azure-create-vm
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars_files:
+    - /home/ansible/vault.yml
+
+  vars:
+    azure_vm_name: win2012testvm2
+    azure_storage_account_name: win2012testvm201
+    azure_network_interface_name: win2012testvm2-nic1
+    azure_vm_size: Standard_D1
+    azure_windows_os_version: 2012-R2-Datacenter
+    azure_resource_group: Mocatad_EV15_AS
+    azure_virtual_network_name: Mocatad_EV15_AS-vnet
+    azure_public_ip_name: win2012testvm201
+    azure_vm_size: Standard_D1
+    azure_template_link: 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/azuredeploy.json'
+    azure_location: australiasoutheast
+
+
+  roles:
+    - azure-arm-deployment

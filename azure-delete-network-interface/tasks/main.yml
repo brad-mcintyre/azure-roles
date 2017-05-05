@@ -1,0 +1,2 @@
+---
+ - include: azure-delete-network-interface.yml

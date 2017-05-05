@@ -1,0 +1,2 @@
+---
+ - include: azure-start-vm.yml

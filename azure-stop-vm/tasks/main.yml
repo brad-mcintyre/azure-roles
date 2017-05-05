@@ -1,0 +1,2 @@
+---
+ - include: azure-stop-vm.yml

@@ -1,0 +1,2 @@
+---
+ - include: azure-vm-image-facts.yml

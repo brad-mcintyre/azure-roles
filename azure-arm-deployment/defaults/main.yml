@@ -1,0 +1,4 @@
+---
+  # defaults file for azure-arm-deployment
+azure_wait_for_deployment_completion: yes
+azure_wait_for_deployment_polling_period: 10
