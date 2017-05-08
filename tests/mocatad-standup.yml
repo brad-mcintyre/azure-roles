@@ -15,6 +15,7 @@
     artifactory_server_name: MOCLIN3101
     tower_server_name: MOCLIN3102
     database_server_name: MOCLIN3103
+
     azure_name:
       - name: "{{ _server_name }}"
         azure_storage_account_name: "{{ gitlab_server_name|lower }}ev16as"
@@ -69,11 +70,9 @@
     azure_vm_size: Standard_D1_v2
     azure_os_type: Linux
 
-
-
   roles:
     - { role: azure-create-storage-account }
-    - { role: azure-create_security_group }
+    - { role: azure-create-security-group }
     - { role: azure-create-public-ip }
     - { role: azure-create-network-interface }
     - { role: azure-create-vm }
