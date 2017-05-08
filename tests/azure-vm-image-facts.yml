@@ -12,6 +12,7 @@
   vars:
     azure_publisher: RedHat
     azure_offer: RHEL
+    azure_sku: 7.2
 
   roles:
     - azure-vm-image-facts

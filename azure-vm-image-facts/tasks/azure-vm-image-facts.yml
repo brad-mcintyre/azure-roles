@@ -10,4 +10,5 @@
     tenant: "{{ azure_tenant }}"
     publisher: "{{ azure_publisher }}"
     offer: "{{ azure_offer }}"
+    sku: "{{ azure_sku }}"
   register: result
