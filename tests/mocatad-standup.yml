@@ -17,7 +17,7 @@
     database_server_name: MOCLIN3103
 
     azure_name:
-      - name: "{{ _server_name }}"
+      - name: "{{ gitlab_server_name }}"
         azure_storage_account_name: "{{ gitlab_server_name|lower }}ev16as"
         azure_security_group_name: "{{ gitlab_server_name }}"
         azure_network_interface_name: "{{ gitlab_server_name }}-nic1"
