@@ -11,59 +11,69 @@
     - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
   vars:
-    gitlab_server_name: MOCLIN3100
-    artifactory_server_name: MOCLIN3101
-    tower_server_name: MOCLIN3102
-    database_server_name: MOCLIN3103
+    azure_gitlab_server_name: MOCLIN3100
+    azure_artifactory_server_name: MOCLIN3101
+    azure_tower_server_name: MOCLIN3102
+    azure_database_server_name: MOCLIN3103
+    azure_client_name: Mocatad
+    azure_dao_environment_name: EV16
 
     azure_name:
-      - name: "{{ gitlab_server_name }}"
-        azure_storage_account_name: "{{ gitlab_server_name|lower }}ev16as"
-        azure_security_group_name: "{{ gitlab_server_name }}"
-        azure_network_interface_name: "{{ gitlab_server_name }}-nic1"
+      - name: "{{ azure_gitlab_server_name }}"
+        azure_storage_account_name: "{{ azure_gitlab_server_name|lower }}{{ dao_environment_name|lower }}as"
+        azure_storage_account_type: Standard_LRS
+        azure_storage_account_kind: Storage
+        azure_security_group_name: "{{ azure_gitlab_server_name }}"
+        azure_network_interface_name: "{{ azure_gitlab_server_name }}-nic1"
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.40 }}"
         azure_public_ip: false
         azure_public_ip_allocation_method: Dynamic
-        azure_resource_group: Mocatad_EV16_AS
-        azure_virtual_network_name: Mocatad_AS
-        azure_subnet_name: Mocatad_AS_NP_Ext_WebApp
+        azure_resource_group: "{{ client_name }}_{{ dao_environment_name }}_AS"
+        azure_virtual_network_name: "{{ client_name }}_AS"
+        azure_subnet_name: ""{{ client_name }}_AS_NP_Ext_WebApp"
 
-      - name: "{{ artifactory_server_name }}"
-        azure_storage_account_name: "{{ artifactory_server_name|lower }}ev16as"
-        azure_security_group_name: "{{ artifactory_server_name }}"
-        azure_network_interface_name: "{{ artifactory_server_name }}-nic1"
+      - name: "{{ azure_artifactory_server_name }}"
+        azure_storage_account_name: "{{ azure_artifactory_server_name|lower }}{{ dao_environment_name|lower }}as"
+        azure_storage_account_type: Standard_LRS
+        azure_storage_account_kind: Storage
+        azure_security_group_name: "{{ azure_artifactory_server_name }}"
+        azure_network_interface_name: "{{ azure_artifactory_server_name }}-nic1"
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.41 }}"
         azure_public_ip: true
         azure_public_ip_allocation_method: Dynamic
-        azure_resource_group: Mocatad_EV16_AS
-        azure_virtual_network_name: Mocatad_AS
-        azure_subnet_name: Mocatad_AS_NP_Ext_WebApp
+        azure_resource_group: "{{ client_name }}_{{ dao_environment_name }}_AS"
+        azure_virtual_network_name: "{{ client_name }}_AS"
+        azure_subnet_name: "{{ client_name }}_AS_NP_Ext_WebApp"
 
-      - name: "{{ tower_server_name }}"
-        azure_storage_account_name: "{{ tower_server_name|lower }}ev16as"
-        azure_security_group_name: "{{ tower_server_name }}"
-        azure_network_interface_name: "{{ tower_server_name }}-nic1"
+      - name: "{{ azure_tower_server_name }}"
+        azure_storage_account_name: "{{ azure_tower_server_name|lower }}{{ dao_environment_name|lower }}as"
+        azure_storage_account_type: Standard_LRS
+        azure_storage_account_kind: Storage
+        azure_security_group_name: "{{ azure_tower_server_name }}"
+        azure_network_interface_name: "{{ azure_tower_server_name }}-nic1"
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.42 }}"
         azure_public_ip: false
         azure_public_ip_allocation_method: Dynamic
-        azure_resource_group: Mocatad_EV16_AS
-        azure_virtual_network_name: Mocatad_AS
-        azure_subnet_name: Mocatad_AS_NP_Ext_WebApp
+        azure_resource_group: "{{ client_name }}_{{ dao_environment_name }}_AS"
+        azure_virtual_network_name: "{{ client_name }}_AS"
+        azure_subnet_name: "{{ client_name }}_AS_NP_Ext_WebApp"
 
-      - name: "{{ database_server_name }}"
-        azure_storage_account_name: "{{ database_server_name|lower }}ev16as"
-        azure_security_group_name: "{{ database_server_name }}"
-        azure_network_interface_name: "{{ database_server_name }}-nic1"
+      - name: "{{ azure_database_server_name }}"
+        azure_storage_account_name: "{{ azure_database_server_name|lower }}{{ dao_environment_name|lower }}as"
+        azure_storage_account_type: Standard_LRS
+        azure_storage_account_kind: Storage
+        azure_security_group_name: "{{ azure_database_server_name }}"
+        azure_network_interface_name: "{{ azure_database_server_name }}-nic1"
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.43 }}"
         azure_public_ip: false
         azure_public_ip_allocation_method: Dynamic
-        azure_resource_group: Mocatad_EV16_AS
-        azure_virtual_network_name: Mocatad_AS
-        azure_subnet_name: Mocatad_AS_NP_Int_DB
+        azure_resource_group: "{{ client_name }}_{{ dao_environment_name }}_AS"
+        azure_virtual_network_name: "{{ client_name }}_AS"
+        azure_subnet_name: "{{ client_name }}_AS_NP_Int_DB"
 
 
     azure_offer: RHEL
