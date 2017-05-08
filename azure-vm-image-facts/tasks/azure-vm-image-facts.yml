@@ -9,4 +9,5 @@
     subscription_id: "{{ azure_subscription_id }}"
     tenant: "{{ azure_tenant }}"
     publisher: "{{ azure_publisher }}"
+    offer: "{{ azure_offer }}"
   register: result
