@@ -31,7 +31,7 @@
         azure_public_ip_allocation_method: Dynamic
         azure_resource_group: "{{ client_name }}_{{ dao_environment_name }}_AS"
         azure_virtual_network_name: "{{ client_name }}_AS"
-        azure_subnet_name: ""{{ client_name }}_AS_NP_Ext_WebApp"
+        azure_subnet_name: "{{ client_name }}_AS_NP_Ext_WebApp"
 
       - name: "{{ azure_artifactory_server_name }}"
         azure_storage_account_name: "{{ azure_artifactory_server_name|lower }}{{ dao_environment_name|lower }}as"
