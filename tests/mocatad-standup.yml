@@ -24,6 +24,7 @@
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.40 }}"
         azure_public_ip: false
+        azure_public_ip_allocation_method: Dynamic
         azure_resource_group: Mocatad_EV16_AS
         azure_virtual_network_name: Mocatad_AS
         azure_subnet_name: Mocatad_AS_NP_Ext_WebApp
@@ -47,6 +48,7 @@
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.42 }}"
         azure_public_ip: false
+        azure_public_ip_allocation_method: Dynamic
         azure_resource_group: Mocatad_EV16_AS
         azure_virtual_network_name: Mocatad_AS
         azure_subnet_name: Mocatad_AS_NP_Ext_WebApp
@@ -58,6 +60,7 @@
         azure_private_ip_allocation_method: Static
         azure_private_ip_address: "{{ 10.1.3.43 }}"
         azure_public_ip: false
+        azure_public_ip_allocation_method: Dynamic
         azure_resource_group: Mocatad_EV16_AS
         azure_virtual_network_name: Mocatad_AS
         azure_subnet_name: Mocatad_AS_NP_Int_DB
