@@ -17,6 +17,8 @@
     azure_name:
       - name: win2008testvm3
         azure_network_interface_name: win2008testvm3-nic1
+        azure_private_ip_allocation_method: Static
+        azure_private_ip_address: 10.1.3.10
 
   roles:
     - azure-create-network-interface

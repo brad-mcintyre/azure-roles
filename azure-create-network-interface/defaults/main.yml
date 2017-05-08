@@ -1,3 +1,4 @@
 ---
   # defaults file for azure-create-network-interface
 azure_public_ip: false
+azure_private_ip_allocation_method: Dynamic
