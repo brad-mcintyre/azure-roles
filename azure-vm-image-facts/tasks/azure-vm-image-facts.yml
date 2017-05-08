@@ -8,7 +8,4 @@
     secret: "{{ azure_secret }}"
     subscription_id: "{{ azure_subscription_id }}"
     tenant: "{{ azure_tenant }}"
-    publisher: "{{ azure_publisher }}"
-    offer: "{{ azure_offer }}"
-    sku: "{{ azure_sku }}"
   register: result
