@@ -10,7 +10,7 @@
     - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
   vars:
-    azure_publisher: OpenLogic
+    azure_publisher: RedHat
 
   roles:
     - azure-vm-image-facts
