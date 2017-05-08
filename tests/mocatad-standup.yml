@@ -8,7 +8,7 @@
   become: yes
 
   vars_files:
-    - /home/ansible/vault.yml
+    - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
   vars:
     git_server_name: MOCLIN3100
@@ -34,7 +34,7 @@
     azure_version: latest
     azure_vm_size: Standard_D1_v2
     azure_os_type: Linux
-    
+
 
 
   roles:
