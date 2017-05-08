@@ -1,0 +1,44 @@
+---
+# This test playbook will create a Cenos 7.1 Virtual Machine
+- name: Playbook for Mocatad DAO standup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  user: ansible
+  become: yes
+
+  vars_files:
+    - /home/ansible/vault.yml
+
+  vars:
+    git_server_name: MOCLIN3100
+    artifactory_server_name: MOCLIN3101
+    tower_server_name: MOCLIN3102
+    database_server_name: MOCLIN3103
+    azure_name:
+      - name: "{{ git_server_name }}"
+        azure_storage_account_name: "{{ git_server_name|lower }}"
+        azure_security_group_name: "{{ git_server_name }}"
+        azure_network_interface_name: "{{ git_server_name }}-nic1"
+        azure_private_ip_allocation_method: Static
+        azure_private_ip_address: "{{ 10.1.3.40 }}"
+        azure_public_ip: false
+        azure_resource_group: Mocatad_EV16_AS
+        azure_virtual_network_name: Mocatad_AS
+        azure_subnet_name: "{{ Mocatad_AS_NP_Ext_WebApp }}"
+
+
+    azure_offer: CentOS
+    azure_publisher: OpenLogic
+    azure_sku: '7.1'
+    azure_version: latest
+    azure_vm_size: Standard_D1
+    azure_os_type: Linux
+    azure_public_ip_allocation_method: Dynamic
+
+
+  roles:
+    - azure-create-storage-account
+    - azure-create-public-ip
+    - azure-create-network-interface
+    - azure-create-vm
