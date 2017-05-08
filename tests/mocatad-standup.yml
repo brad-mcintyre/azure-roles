@@ -4,7 +4,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  user: ansible
+  user: testadmin
   become: yes
 
   vars_files:
