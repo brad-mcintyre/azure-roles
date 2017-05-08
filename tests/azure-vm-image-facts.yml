@@ -9,5 +9,8 @@
   vars_files:
     - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
+  vars:
+    azure_publisher: redhat
+
   roles:
     - azure-vm-image-facts
