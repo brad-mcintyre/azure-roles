@@ -85,7 +85,7 @@
 
   roles:
     - { role: azure-create-storage-account }
-    #- { role: azure-create-security-group }
+    - { role: azure-create-security-group }
     #- { role: azure-create-public-ip }
     #- { role: azure-create-network-interface }
     #- { role: azure-create-vm }
