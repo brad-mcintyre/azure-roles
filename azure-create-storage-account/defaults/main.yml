@@ -3,3 +3,4 @@
 
 azure_storage_account_type: Standard_LRS
 azure_storage_account_kind: Storage
+azure_public_ip_allocation_method: Dynamic
