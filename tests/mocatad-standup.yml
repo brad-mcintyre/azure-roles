@@ -28,13 +28,13 @@
         azure_subnet_name: "{{ Mocatad_AS_NP_Ext_WebApp }}"
 
 
-    azure_offer: CentOS
-    azure_publisher: OpenLogic
-    azure_sku: '7.1'
+    azure_offer: RHEL
+    azure_publisher: RedHat
+    azure_sku: '7.2'
     azure_version: latest
-    azure_vm_size: Standard_D1
+    azure_vm_size: Standard_D1_v2
     azure_os_type: Linux
-    azure_public_ip_allocation_method: Dynamic
+    
 
 
   roles:
