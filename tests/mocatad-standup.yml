@@ -44,8 +44,8 @@
         # azure_public_ip: true
         # azure_public_ip_allocation_method: Dynamic
         azure_resource_group: "{{ azure_client_name }}_{{ azure_dao_environment_name }}_AS"
-        azure_virtual_network_name: "{{ azure_client_name }}_AS"
-        azure_subnet_name: "{{ azure_client_name }}_AS_NP_Ext_WebApp"
+        # azure_virtual_network_name: "{{ azure_client_name }}_AS"
+        # azure_subnet_name: "{{ azure_client_name }}_AS_NP_Ext_WebApp"
 
       # - name: "{{ azure_tower_server_name }}"
       #   azure_storage_account_name: "{{ azure_tower_server_name|lower }}{{ azure_dao_environment_name|lower }}as"
