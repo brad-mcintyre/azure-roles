@@ -1,2 +1,5 @@
 ---
   # defaults file for azure-vm-image-facts
+azure_publisher: "{{}}"
+azure_offer: "{{}}"
+azure_sku: "{{}}"
