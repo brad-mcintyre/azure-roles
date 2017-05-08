@@ -4,8 +4,8 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  user: testadmin
-  become: yes
+  # user: testadmin
+  # become: yes
 
   vars_files:
     - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
