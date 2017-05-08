@@ -7,7 +7,7 @@
   become: yes
 
   vars_files:
-    - /home/testadmin/env.care.rhel.mocatad.yml
+    - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
   roles:
     - azure-vm-image-facts
