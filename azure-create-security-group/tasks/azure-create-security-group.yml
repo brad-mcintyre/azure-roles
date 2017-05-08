@@ -1,6 +1,6 @@
 ---
 - name: Create Security Group
-  azure_rm_security_group:
+  azure_rm_securitygroup:
     client_id: "{{ azure_client_id }}"
     secret: "{{ azure_secret }}"
     subscription_id: "{{ azure_subscription_id }}"
