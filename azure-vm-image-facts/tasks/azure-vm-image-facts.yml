@@ -3,12 +3,12 @@
 
 - name: Get facts
   azure_rm_virtualmachineimage_facts:
-    location: "{{ location }}"
+    location: "{{ azure_location }}"
     client_id: "{{ azure_client_id }}"
     secret: "{{ azure_secret }}"
     subscription_id: "{{ azure_subscription_id }}"
     tenant: "{{ azure_tenant }}"
-    publisher: "{{ publisher }}"
-    offer: "{{ offer }}"
-    sku: "{{ sku }}"
+    publisher: "{{ azure_publisher }}"
+    offer: "{{ azure_offer }}"
+    sku: "{{ azure_sku }}"
   register: result
