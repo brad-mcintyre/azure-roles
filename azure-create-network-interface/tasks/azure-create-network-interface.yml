@@ -1,10 +1,12 @@
 ---
 - name: Create Network Interface
   azure_rm_networkinterface:
-    client_id: "{{ azure_client_id }}"
-    secret: "{{ azure_secret }}"
-    subscription_id: "{{ azure_subscription_id }}"
-    tenant: "{{ azure_tenant }}"
+    ad_user: b_mcintyre@hotmail.com
+    password: compaq25
+    #client_id: "{{ azure_client_id }}"
+    #secret: "{{ azure_secret }}"
+    #subscription_id: "{{ azure_subscription_id }}"
+    #tenant: "{{ azure_tenant }}"
     #resource_group: "{{ item.azure_resource_group }}"
     resource_group: Mocatad_EV16_AS
     name: "{{ item.azure_network_interface_name }}"
