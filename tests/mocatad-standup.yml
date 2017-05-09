@@ -81,7 +81,7 @@
         azure_virtual_network_name: "{{ azure_client_name }}_AS"
         azure_subnet_name: "{{ azure_client_name }}_AS_NP_Int_DB"
 
-    azure_security_role_priority_allowssh: "600"
+    azure_security_role_priority_allowssh: 600
 
     azure_security_rule:
       - azure_security_group_name: "{{ azure_gitlab_server_name }}"
