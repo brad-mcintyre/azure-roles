@@ -10,7 +10,6 @@
     rule:
       - name: "{{ item.azure_security_rule_name }}"
         protocol: "{{ item.azure_security_rule_protocol }}"
-        source_address_prefix: "{{ item.azure_security_rule_source_address_prefix }}"
         destination_port_range: "{{ item.azure_security_rule_destination_port_range }}"
         access: "{{ item.azure_security_rule_access }}"
         priority: "{{ item.azure_security_rule_priority }}"
