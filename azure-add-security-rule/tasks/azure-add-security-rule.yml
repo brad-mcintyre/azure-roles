@@ -12,6 +12,6 @@
         protocol: "{{ item.azure_security_rule_protocol }}"
         destination_port_range: "{{ item.azure_security_rule_destination_port_range }}"
         access: "{{ item.azure_security_rule_access }}"
-        priority: "{{ item.azure_security_rule_priority }}"
+        priority: 600 #"{{ item.azure_security_rule_priority }}"
         direction: "{{ item.azure_security_rule_direction }}"
   with_items: "{{ azure_security_rule }}"
