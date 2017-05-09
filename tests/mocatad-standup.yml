@@ -81,6 +81,8 @@
         azure_virtual_network_name: "{{ azure_client_name }}_AS"
         azure_subnet_name: "{{ azure_client_name }}_AS_NP_Int_DB"
 
+    azure_security_role_priority_allowssh: 600
+
     azure_security_rule:
       - azure_security_group_name: "{{ azure_gitlab_server_name }}"
         azure_resource_group: "{{ azure_client_name }}_{{ azure_dao_environment_name }}_AS"
@@ -89,7 +91,7 @@
         azure_security_rule_source_address_prefix: '*'
         azure_security_rule_destination_port_range: 22
         azure_security_rule_access: Allow
-        azure_security_rule_priority: 60
+        azure_security_rule_priority: "{{ azure_security_role_priority_allowssh }}"
         azure_security_rule_direction: Inbound
 
 
@@ -98,7 +100,7 @@
   roles:
     #- { role: azure-create-storage-account }
     #- { role: azure-create-security-group }
-    #- { role: azure-add-security-rule }
+    - { role: azure-add-security-rule }
     #- { role: azure-create-public-ip }
     #- { role: azure-create-network-interface }
-    - { role: azure-create-vm }
+    #- { role: azure-create-vm }
