@@ -89,7 +89,7 @@
         azure_security_rule_source_address_prefix: '*'
         azure_security_rule_destination_port_range: 22
         azure_security_rule_access: Allow
-        azure_security_rule_priority: '1000'
+        azure_security_rule_priority: 101
         azure_security_rule_direction: Inbound
 
 
