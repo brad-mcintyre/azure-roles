@@ -1,2 +1,2 @@
 ---
- - include: azure-add-security-rule.yml
+ - include: azure-add-security-rule-p1000.yml
