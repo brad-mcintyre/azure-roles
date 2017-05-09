@@ -8,7 +8,7 @@
     resource_group: "{{ item.azure_resource_group }}"
     name: "{{ item.name }}"
     allocation_method: "{{ item.azure_public_ip_allocation_method }}"
-    domain_name_label: "{{ item.name }}"
+    domain_name_label: "{{ item.name|lower }}"
     state: present
   with_items: "{{ azure_name }}"
   when: item.azure_public_ip == true
