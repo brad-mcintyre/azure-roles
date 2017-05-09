@@ -6,7 +6,7 @@
     subscription_id: "{{ azure_subscription_id }}"
     tenant: "{{ azure_tenant }}"
     #resource_group: "{{ item.azure_resource_group }}"
-    resource_group: Mocatad_EV15_AS
+    resource_group: Mocatad_EV16_AS
     name: "{{ item.azure_network_interface_name }}"
     #virtual_network_name: "{{ item.azure_virtual_network_name }}"
     virtual_network_name: Mocatad_EV15_AS-vnet
