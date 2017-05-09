@@ -9,10 +9,10 @@
     resource_group: Mocatad_EV16_AS
     name: "{{ item.azure_network_interface_name }}"
     #virtual_network_name: "{{ item.azure_virtual_network_name }}"
-    virtual_network_name: Mocatad_EV15_AS-vnet
+    virtual_network_name: Mocatad_AS
     #security_group_name: "{{ item.azure_security_group_name }}"
     subnet_name: "{{ item.azure_subnet_name }}"
-    subnet_name: default
+    subnet_name: Mocatad_AS_NP_Ext_WebApp
     public_ip: "{{ item.azure_public_ip }}"
     public_ip: false
     #public_ip_address_name: "{{ item.name }}"
