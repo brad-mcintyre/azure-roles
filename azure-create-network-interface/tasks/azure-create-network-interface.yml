@@ -1,8 +1,8 @@
 ---
 - name: Create Network Interface
   azure_rm_networkinterface:
-    ad_user: b_mcintyre@hotmail.com
-    password: compaq25
+    ad_user: "b_mcintyre@hotmail.com"
+    password: "compaq25"
     #client_id: "{{ azure_client_id }}"
     #secret: "{{ azure_secret }}"
     #subscription_id: "{{ azure_subscription_id }}"
