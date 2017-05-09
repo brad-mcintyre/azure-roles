@@ -14,7 +14,8 @@
     subnet_name: "{{ item.azure_subnet_name }}"
     subnet_name: default
     public_ip: "{{ item.azure_public_ip }}"
-    public_ip_address_name: "{{ item.name }}"
+    public_ip: false
+    #public_ip_address_name: "{{ item.name }}"
     #private_ip_address: "{{ item.azure_private_ip_address }}"
     #private_ip_allocation_method: "{{ item.azure_private_ip_allocation_method }}"
   with_items: "{{ azure_name }}"
