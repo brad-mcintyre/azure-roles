@@ -1,0 +1,18 @@
+---
+- name: Add Network Security Rule
+  azure_rm_securitygroup:
+    client_id: "{{ azure_client_id }}"
+    secret: "{{ azure_secret }}"
+    subscription_id: "{{ azure_subscription_id }}"
+    tenant: "{{ azure_tenant }}"
+    resource_group: "{{ item.azure_resource_group }}"
+    name: "{{ item.azure_security_group_name }}"
+    rule:
+      - name: "{{ item.azure_security_rule_name }}"
+        protocol: "{{ item.azure_security_rule_protocol }}"
+        source_address_prefix: "{{ item.azure_security_rule_source_address_prefix }}"
+        destination_port_range: "{{ item.azure_security_rule_destination_port_range }}"
+        access: "{{ item.azure_security_rule_access }}"
+        priority: "{{ item.azure_security_rule_priority }}"
+        direction: "{{ item.azure_security_rule_direction }}"
+  with_items: "{{ azure_security_rule }}"
