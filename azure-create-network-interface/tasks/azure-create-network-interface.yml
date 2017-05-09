@@ -10,7 +10,7 @@
     virtual_network_name: "{{ item.azure_virtual_network_name }}"
     security_group_name: "{{ item.azure_security_group_name }}"
     subnet_name: "{{ item.azure_subnet_name }}"
-    public_ip: "{{ item.azure_public_ip }}""
+    public_ip: "{{ item.azure_public_ip }}"
     public_ip_address_name: "{{ item.name }}"
     private_ip_address: "{{ item.azure_private_ip_address }}"
     private_ip_allocation_method: "{{ item.azure_private_ip_allocation_method }}"
