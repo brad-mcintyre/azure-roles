@@ -86,7 +86,7 @@
         azure_resource_group: "{{ azure_client_name }}_{{ azure_dao_environment_name }}_AS"
         azure_security_rule_name: 'AllowSSH'
         azure_security_rule_protocol: TCP
-        azure_security_rule_source_address_prefix: *
+        azure_security_rule_source_address_prefix: '*'
         azure_security_rule_destination_port_range: 22
         azure_security_rule_access: Allow
         azure_security_rule_priority: 1000
