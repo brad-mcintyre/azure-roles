@@ -17,6 +17,12 @@
     azure_database_server_name: MOCLIN3103
     azure_client_name: Mocatad
     azure_dao_environment_name: EV16
+    azure_offer: RHEL
+    azure_publisher: RedHat
+    azure_sku: '7.2'
+    azure_version: latest
+    azure_vm_size: Standard_D1_v2
+    azure_os_type: Linux
 
     azure_name:
       - name: "{{ azure_gitlab_server_name }}"
@@ -75,24 +81,19 @@
         azure_virtual_network_name: "{{ azure_client_name }}_AS"
         azure_subnet_name: "{{ azure_client_name }}_AS_NP_Int_DB"
 
-  azure_security_rule:
-    - azure_security_group_name: "{{ azure_gitlab_server_name }}"
-      azure_resource_group: "{{ azure_client_name }}_{{ azure_dao_environment_name }}_AS"
-      azure_security_rule_name: 'AllowSSH'
-      azure_security_rule_protocol: TCP
-      azure_security_rule_source_address_prefix: Any
-      azure_security_rule_destination_port_range: 22
-      azure_security_rule_access: Allow
-      azure_security_rule_priority: 1000
-      azure_security_rule_direction: Inbound
+    azure_security_rule:
+      - azure_security_group_name: "{{ azure_gitlab_server_name }}"
+        azure_resource_group: "{{ azure_client_name }}_{{ azure_dao_environment_name }}_AS"
+        azure_security_rule_name: 'AllowSSH'
+        azure_security_rule_protocol: TCP
+        azure_security_rule_source_address_prefix: Any
+        azure_security_rule_destination_port_range: 22
+        azure_security_rule_access: Allow
+        azure_security_rule_priority: 1000
+        azure_security_rule_direction: Inbound
 
 
-    azure_offer: RHEL
-    azure_publisher: RedHat
-    azure_sku: '7.2'
-    azure_version: latest
-    azure_vm_size: Standard_D1_v2
-    azure_os_type: Linux
+
 
   roles:
     - { role: azure-create-storage-account }
