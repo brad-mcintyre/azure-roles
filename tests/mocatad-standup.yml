@@ -25,7 +25,7 @@
     azure_vm_size: Standard_D1_v2
     azure_os_type: Linux
     azure_ssh_public_key_path:  "/home/{{ azure_admin_username }}/.ssh/authorized_keys"
-    azure_ssh_public_key_data: "AAAAB3NzaC1yc2EAAAADAQABAAABAQDxcjmzOjUuj2fqsX3SuAMEXeF57nDhrutCQrMtDVwGZIz2f9Hci9V76jQSp2ie1RVcah2nHqt26y1kaLI2hQjJZYz5JdkvFmK4dKLL6XmmmJrJmpGMO8zjSJFNEKh9Mu0JV0g1ItPzwgvVbXFT/6j5hnBibHS9PXUL/HW3bGIW9tUv5KB2DjjZcbgQacsPJxoxtFBjqQqB4KhBFfiLEhobpbw8iOCxxE9lYJEnelOweZe48RWqVUNX1m5tv1SSF/6kRIB53TyW5NRwZFgrQmbu0C7asyvulat6sjUzimSwlnMSbEavcStqqUmoQ7OgMtxGs4azWofhTc0YrR3fTCRh {{ azure_admin_username }}@{{ azure_ansible_server_name }}"
+    azure_ssh_public_key_data: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDxcjmzOjUuj2fqsX3SuAMEXeF57nDhrutCQrMtDVwGZIz2f9Hci9V76jQSp2ie1RVcah2nHqt26y1kaLI2hQjJZYz5JdkvFmK4dKLL6XmmmJrJmpGMO8zjSJFNEKh9Mu0JV0g1ItPzwgvVbXFT/6j5hnBibHS9PXUL/HW3bGIW9tUv5KB2DjjZcbgQacsPJxoxtFBjqQqB4KhBFfiLEhobpbw8iOCxxE9lYJEnelOweZe48RWqVUNX1m5tv1SSF/6kRIB53TyW5NRwZFgrQmbu0C7asyvulat6sjUzimSwlnMSbEavcStqqUmoQ7OgMtxGs4azWofhTc0YrR3fTCRh {{ azure_admin_username }}@{{ azure_ansible_server_name }}"
 
     azure_name:
       - name: "{{ azure_gitlab_server_name }}"
