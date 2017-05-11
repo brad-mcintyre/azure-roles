@@ -11,6 +11,7 @@
     - /home/testadmin/envcare-infra/roles/azure/env.care.rhel.mocatad.yml
 
   vars:
+    azure_ansible_server_name: mocansible221
     azure_gitlab_server_name: MOCLIN3100
     azure_artifactory_server_name: MOCLIN3101
     azure_tower_server_name: MOCLIN3102
@@ -23,6 +24,8 @@
     azure_version: latest
     azure_vm_size: Standard_D1_v2
     azure_os_type: Linux
+    azure_ssh_public_key_path:  "/home/{{ admin_username }}/.ssh/authorized_keys"
+    azure_ssh_public_key_data: "AAAAB3NzaC1yc2EAAAADAQABAAABAQDxcjmzOjUuj2fqsX3SuAMEXeF57nDhrutCQrMtDVwGZIz2f9Hci9V76jQSp2ie1RVcah2nHqt26y1kaLI2hQjJZYz5JdkvFmK4dKLL6XmmmJrJmpGMO8zjSJFNEKh9Mu0JV0g1ItPzwgvVbXFT/6j5hnBibHS9PXUL/HW3bGIW9tUv5KB2DjjZcbgQacsPJxoxtFBjqQqB4KhBFfiLEhobpbw8iOCxxE9lYJEnelOweZe48RWqVUNX1m5tv1SSF/6kRIB53TyW5NRwZFgrQmbu0C7asyvulat6sjUzimSwlnMSbEavcStqqUmoQ7OgMtxGs4azWofhTc0YrR3fTCRh {{ admin_user }}@{{ azure_ansible_server_name }}"
 
     azure_name:
       - name: "{{ azure_gitlab_server_name }}"
@@ -123,9 +126,9 @@
 
 
   roles:
-    #- { role: azure-create-storage-account }
-    #- { role: azure-create-security-group }
+    - { role: azure-create-storage-account }
+    - { role: azure-create-security-group }
     - { role: azure-add-security-rule }
-    #- { role: azure-create-public-ip }
+    - { role: azure-create-public-ip }
     #- { role: azure-create-network-interface }
-    #- { role: azure-create-vm }
+    - { role: azure-create-vm }

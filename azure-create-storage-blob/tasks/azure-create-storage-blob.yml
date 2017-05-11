@@ -1,0 +1,13 @@
+---
+- name: Create Storage Blob
+  azure_rm_storageblob:
+    client_id: "{{ azure_client_id }}"
+    secret: "{{ azure_secret }}"
+    subscription_id: "{{ azure_subscription_id }}"
+    tenant: "{{ azure_tenant }}"
+    resource_group: "{{ item.azure_resource_group }}"
+    blob: "{{ item.azure_storage_blob_name }}"
+    container: "{{ item.azure_storage_container_name }}"
+    storage_account_name: "{{ item.azure_storage_account_name }}"
+    state: present
+  with_items: "{{ azure_name }}"
